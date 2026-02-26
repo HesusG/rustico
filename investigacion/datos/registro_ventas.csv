@@ -1,0 +1,973 @@
+Fecha,Producto,Cantidad,Precio_Unitario,Total,Metodo_Pago
+2025-09-02,Refresco,4,25,100,Efectivo
+2025-09-02,Roles de canela,6,35,210,Efectivo
+2025-09-02,Pepperoni,2,140,280,Tarjeta
+2025-09-02,Margarita,4,120,480,Efectivo
+2025-09-02,Cuernos,5,30,150,Efectivo
+2025-09-02,Mexicana,2,160,320,Tarjeta
+2025-09-02,Mexicana,2,160,320,Efectivo
+2025-09-02,Mexicana,2,160,320,Efectivo
+2025-09-02,Refresco,2,25,50,Tarjeta
+2025-09-02,Café americano,1,35,35,Efectivo
+2025-09-03,Roles de canela,1,35,35,Efectivo
+2025-09-03,Café americano,4,35,140,Efectivo
+2025-09-03,Champiñones,2,150,300,Efectivo
+2025-09-03,BBQ Pollo,2,170,340,Efectivo
+2025-09-03,4 Quesos,2,155,310,Tarjeta
+2025-09-03,Margarita,3,120,360,Tarjeta
+2025-09-03,Champiñones,3,150,450,Efectivo
+2025-09-03,Rústica Especial,2,180,360,Efectivo
+2025-09-03,Café capuchino,1,45,45,Efectivo
+2025-09-03,4 Quesos,1,155,155,Efectivo
+2025-09-03,Café americano,2,35,70,Efectivo
+2025-09-03,Hawaiana,1,150,150,Efectivo
+2025-09-03,Cuernos,1,30,30,Tarjeta
+2025-09-03,Pepperoni,2,140,280,Tarjeta
+2025-09-04,Hawaiana,2,150,300,Tarjeta
+2025-09-04,Pepperoni,1,140,140,Tarjeta
+2025-09-04,Vegetariana,3,145,435,Tarjeta
+2025-09-04,De la Casa,2,190,380,Efectivo
+2025-09-04,4 Quesos,2,155,310,Efectivo
+2025-09-04,BBQ Pollo,3,170,510,Tarjeta
+2025-09-04,Mexicana,3,160,480,Efectivo
+2025-09-04,Margarita,2,120,240,Tarjeta
+2025-09-04,Café capuchino,1,45,45,Tarjeta
+2025-09-04,Rústica Especial,1,180,180,Tarjeta
+2025-09-04,De la Casa,2,190,380,Efectivo
+2025-09-04,Margarita,2,120,240,Efectivo
+2025-09-04,Hawaiana,2,150,300,Efectivo
+2025-09-05,Mexicana,2,160,320,Efectivo
+2025-09-05,Hawaiana,3,150,450,Efectivo
+2025-09-05,Champiñones,1,150,150,Tarjeta
+2025-09-05,Hawaiana,3,150,450,Efectivo
+2025-09-05,Cuernos,4,30,120,Efectivo
+2025-09-05,Hawaiana,2,150,300,Tarjeta
+2025-09-05,Rebanada de pay,6,55,330,Efectivo
+2025-09-05,Conchas,8,15,120,Efectivo
+2025-09-05,Margarita,3,120,360,Tarjeta
+2025-09-05,Conchas,5,15,75,Efectivo
+2025-09-05,Hawaiana,3,150,450,Efectivo
+2025-09-05,Galletas chispas chocolate,6,25,150,Efectivo
+2025-09-05,Rebanada de pay,3,55,165,Efectivo
+2025-09-05,4 Quesos,3,155,465,Efectivo
+2025-09-05,Tiramisú porción,2,65,130,Efectivo
+2025-09-06,De la Casa,1,190,190,Efectivo
+2025-09-06,4 Quesos,3,155,465,Tarjeta
+2025-09-06,Refresco,4,25,100,Tarjeta
+2025-09-06,Hawaiana,1,150,150,Tarjeta
+2025-09-06,4 Quesos,2,155,310,Tarjeta
+2025-09-06,Margarita,3,120,360,Efectivo
+2025-09-06,BBQ Pollo,3,170,510,Tarjeta
+2025-09-06,Pepperoni,1,140,140,Efectivo
+2025-09-06,Margarita,3,120,360,Tarjeta
+2025-09-06,Limonada,2,30,60,Tarjeta
+2025-09-06,4 Quesos,3,155,465,Tarjeta
+2025-09-06,Hawaiana,3,150,450,Efectivo
+2025-09-06,Tiramisú porción,5,65,325,Tarjeta
+2025-09-06,Tiramisú porción,6,65,390,Efectivo
+2025-09-06,Rebanada de pay,4,55,220,Tarjeta
+2025-09-06,Vegetariana,2,145,290,Efectivo
+2025-09-06,Hawaiana,3,150,450,Tarjeta
+2025-09-06,Margarita,4,120,480,Efectivo
+2025-09-07,4 Quesos,2,155,310,Tarjeta
+2025-09-07,Rústica Especial,2,180,360,Efectivo
+2025-09-07,Tiramisú porción,8,65,520,Tarjeta
+2025-09-07,Galletas chispas chocolate,5,25,125,Efectivo
+2025-09-07,Café capuchino,3,45,135,Efectivo
+2025-09-07,Cuernos,5,30,150,Tarjeta
+2025-09-07,4 Quesos,1,155,155,Efectivo
+2025-09-07,Vegetariana,2,145,290,Tarjeta
+2025-09-07,Refresco,2,25,50,Tarjeta
+2025-09-07,Hawaiana,2,150,300,Efectivo
+2025-09-07,Refresco,4,25,100,Tarjeta
+2025-09-09,Vegetariana,1,145,145,Efectivo
+2025-09-09,Margarita,2,120,240,Tarjeta
+2025-09-09,Pepperoni,3,140,420,Tarjeta
+2025-09-09,Cuernos,2,30,60,Tarjeta
+2025-09-09,Hawaiana,2,150,300,Tarjeta
+2025-09-09,De la Casa,1,190,190,Efectivo
+2025-09-09,Margarita,1,120,120,Tarjeta
+2025-09-09,Limonada,2,30,60,Efectivo
+2025-09-09,Refresco,3,25,75,Tarjeta
+2025-09-09,Rebanada de pay,1,55,55,Efectivo
+2025-09-09,Hawaiana,4,150,600,Efectivo
+2025-09-09,Mexicana,4,160,640,Efectivo
+2025-09-09,Café americano,4,35,140,Efectivo
+2025-09-09,Conchas,6,15,90,Efectivo
+2025-09-10,Hawaiana,2,150,300,Efectivo
+2025-09-10,Margarita,3,120,360,Efectivo
+2025-09-10,Mexicana,2,160,320,Efectivo
+2025-09-10,Galletas chispas chocolate,4,25,100,Efectivo
+2025-09-10,Agua fresca,4,30,120,Efectivo
+2025-09-10,Roles de canela,8,35,280,Tarjeta
+2025-09-10,Champiñones,2,150,300,Efectivo
+2025-09-10,4 Quesos,3,155,465,Tarjeta
+2025-09-10,Roles de canela,2,35,70,Efectivo
+2025-09-10,Margarita,2,120,240,Efectivo
+2025-09-11,Mexicana,3,160,480,Tarjeta
+2025-09-11,Pepperoni,3,140,420,Efectivo
+2025-09-11,Champiñones,3,150,450,Tarjeta
+2025-09-11,4 Quesos,2,155,310,Tarjeta
+2025-09-11,Café capuchino,2,45,90,Efectivo
+2025-09-11,4 Quesos,3,155,465,Tarjeta
+2025-09-11,Vegetariana,3,145,435,Tarjeta
+2025-09-11,Rústica Especial,1,180,180,Tarjeta
+2025-09-11,Margarita,3,120,360,Efectivo
+2025-09-11,De la Casa,3,190,570,Tarjeta
+2025-09-11,De la Casa,2,190,380,Tarjeta
+2025-09-11,Rústica Especial,1,180,180,Efectivo
+2025-09-13,Margarita,3,120,360,Tarjeta
+2025-09-13,Rebanada de pay,3,55,165,Efectivo
+2025-09-13,BBQ Pollo,2,170,340,Efectivo
+2025-09-13,Conchas,3,15,45,Efectivo
+2025-09-13,Cuernos,1,30,30,Efectivo
+2025-09-13,Hawaiana,2,150,300,Efectivo
+2025-09-13,Roles de canela,3,35,105,Efectivo
+2025-09-13,Roles de canela,2,35,70,Efectivo
+2025-09-13,Agua fresca,1,30,30,Efectivo
+2025-09-13,Mexicana,3,160,480,Efectivo
+2025-09-13,Tiramisú porción,8,65,520,Tarjeta
+2025-09-13,Mexicana,4,160,640,Efectivo
+2025-09-13,Roles de canela,8,35,280,Tarjeta
+2025-09-13,Limonada,4,30,120,Efectivo
+2025-09-13,Agua fresca,2,30,60,Efectivo
+2025-09-13,Pepperoni,3,140,420,Efectivo
+2025-09-13,Conchas,8,15,120,Efectivo
+2025-09-14,Rústica Especial,1,180,180,Tarjeta
+2025-09-14,Margarita,2,120,240,Efectivo
+2025-09-14,Margarita,2,120,240,Efectivo
+2025-09-14,De la Casa,3,190,570,Efectivo
+2025-09-14,Agua fresca,3,30,90,Tarjeta
+2025-09-14,Rústica Especial,2,180,360,Tarjeta
+2025-09-14,Hawaiana,2,150,300,Efectivo
+2025-09-14,4 Quesos,3,155,465,Efectivo
+2025-09-14,De la Casa,2,190,380,Tarjeta
+2025-09-14,Rústica Especial,2,180,360,Efectivo
+2025-09-14,Agua fresca,2,30,60,Efectivo
+2025-09-14,Conchas,1,15,15,Tarjeta
+2025-09-14,De la Casa,3,190,570,Efectivo
+2025-09-14,Conchas,2,15,30,Efectivo
+2025-09-14,Margarita,4,120,480,Efectivo
+2025-09-14,4 Quesos,2,155,310,Tarjeta
+2025-09-14,Vegetariana,4,145,580,Efectivo
+2025-09-16,Margarita,1,120,120,Efectivo
+2025-09-16,BBQ Pollo,2,170,340,Efectivo
+2025-09-16,Pepperoni,2,140,280,Efectivo
+2025-09-16,Vegetariana,2,145,290,Tarjeta
+2025-09-16,4 Quesos,3,155,465,Efectivo
+2025-09-16,Roles de canela,2,35,70,Efectivo
+2025-09-16,Hawaiana,2,150,300,Tarjeta
+2025-09-16,Mexicana,2,160,320,Tarjeta
+2025-09-16,Margarita,2,120,240,Efectivo
+2025-09-16,Champiñones,1,150,150,Efectivo
+2025-09-16,4 Quesos,3,155,465,Tarjeta
+2025-09-16,Café capuchino,4,45,180,Efectivo
+2025-09-17,Mexicana,1,160,160,Tarjeta
+2025-09-17,4 Quesos,3,155,465,Efectivo
+2025-09-17,Galletas chispas chocolate,2,25,50,Efectivo
+2025-09-17,Roles de canela,4,35,140,Efectivo
+2025-09-17,Pepperoni,2,140,280,Efectivo
+2025-09-17,Hawaiana,3,150,450,Efectivo
+2025-09-17,Cuernos,6,30,180,Tarjeta
+2025-09-17,Galletas chispas chocolate,8,25,200,Tarjeta
+2025-09-17,Cuernos,3,30,90,Efectivo
+2025-09-17,Rústica Especial,3,180,540,Tarjeta
+2025-09-17,Roles de canela,3,35,105,Efectivo
+2025-09-18,Galletas chispas chocolate,4,25,100,Tarjeta
+2025-09-18,Limonada,1,30,30,Tarjeta
+2025-09-18,Limonada,2,30,60,Efectivo
+2025-09-18,Margarita,2,120,240,Efectivo
+2025-09-18,BBQ Pollo,3,170,510,Efectivo
+2025-09-18,Galletas chispas chocolate,5,25,125,Tarjeta
+2025-09-18,De la Casa,4,190,760,Efectivo
+2025-09-18,Champiñones,2,150,300,Efectivo
+2025-09-18,Margarita,4,120,480,Efectivo
+2025-09-18,Rebanada de pay,1,55,55,Efectivo
+2025-09-18,Cuernos,6,30,180,Efectivo
+2025-09-18,Mexicana,4,160,640,Efectivo
+2025-09-19,Limonada,3,30,90,Tarjeta
+2025-09-19,Champiñones,3,150,450,Efectivo
+2025-09-19,4 Quesos,3,155,465,Efectivo
+2025-09-19,Galletas chispas chocolate,6,25,150,Efectivo
+2025-09-19,Pepperoni,3,140,420,Efectivo
+2025-09-19,Pepperoni,3,140,420,Tarjeta
+2025-09-19,Café capuchino,3,45,135,Efectivo
+2025-09-19,Hawaiana,3,150,450,Efectivo
+2025-09-19,Pepperoni,2,140,280,Tarjeta
+2025-09-19,Conchas,2,15,30,Efectivo
+2025-09-19,Hawaiana,4,150,600,Efectivo
+2025-09-20,Conchas,1,15,15,Tarjeta
+2025-09-20,Pepperoni,1,140,140,Tarjeta
+2025-09-20,Mexicana,2,160,320,Efectivo
+2025-09-20,Margarita,3,120,360,Efectivo
+2025-09-20,4 Quesos,1,155,155,Tarjeta
+2025-09-20,Margarita,2,120,240,Efectivo
+2025-09-20,Mexicana,2,160,320,Efectivo
+2025-09-20,Galletas chispas chocolate,8,25,200,Efectivo
+2025-09-20,Margarita,1,120,120,Efectivo
+2025-09-20,Champiñones,2,150,300,Tarjeta
+2025-09-20,Cuernos,5,30,150,Tarjeta
+2025-09-20,Margarita,3,120,360,Efectivo
+2025-09-20,Vegetariana,3,145,435,Tarjeta
+2025-09-20,Rústica Especial,3,180,540,Efectivo
+2025-09-20,Agua fresca,1,30,30,Efectivo
+2025-09-20,BBQ Pollo,3,170,510,Efectivo
+2025-09-20,Galletas chispas chocolate,8,25,200,Efectivo
+2025-09-20,Mexicana,4,160,640,Efectivo
+2025-09-20,Tiramisú porción,6,65,390,Tarjeta
+2025-09-20,Hawaiana,3,150,450,Efectivo
+2025-09-21,Conchas,4,15,60,Efectivo
+2025-09-21,Hawaiana,2,150,300,Efectivo
+2025-09-21,Hawaiana,1,150,150,Efectivo
+2025-09-21,Hawaiana,1,150,150,Efectivo
+2025-09-21,Pepperoni,3,140,420,Efectivo
+2025-09-21,Rústica Especial,1,180,180,Efectivo
+2025-09-21,BBQ Pollo,2,170,340,Tarjeta
+2025-09-21,Café americano,2,35,70,Efectivo
+2025-09-21,Cuernos,2,30,60,Efectivo
+2025-09-21,Margarita,2,120,240,Efectivo
+2025-09-21,Hawaiana,3,150,450,Efectivo
+2025-09-21,Rústica Especial,2,180,360,Tarjeta
+2025-09-21,Rebanada de pay,5,55,275,Efectivo
+2025-09-21,Hawaiana,2,150,300,Efectivo
+2025-09-21,Cuernos,6,30,180,Efectivo
+2025-09-21,4 Quesos,3,155,465,Tarjeta
+2025-09-21,4 Quesos,3,155,465,Tarjeta
+2025-09-21,Café americano,2,35,70,Tarjeta
+2025-09-21,Margarita,2,120,240,Tarjeta
+2025-09-21,Hawaiana,3,150,450,Efectivo
+2025-09-23,Cuernos,8,30,240,Tarjeta
+2025-09-23,4 Quesos,2,155,310,Efectivo
+2025-09-23,Refresco,1,25,25,Efectivo
+2025-09-23,Café americano,2,35,70,Efectivo
+2025-09-23,Mexicana,2,160,320,Tarjeta
+2025-09-23,4 Quesos,2,155,310,Tarjeta
+2025-09-23,Rústica Especial,4,180,720,Tarjeta
+2025-09-23,Mexicana,3,160,480,Efectivo
+2025-09-23,Galletas chispas chocolate,5,25,125,Tarjeta
+2025-09-23,Café capuchino,2,45,90,Efectivo
+2025-09-24,Rebanada de pay,1,55,55,Efectivo
+2025-09-24,Hawaiana,2,150,300,Efectivo
+2025-09-24,Pepperoni,2,140,280,Efectivo
+2025-09-24,Café capuchino,4,45,180,Efectivo
+2025-09-24,Roles de canela,6,35,210,Efectivo
+2025-09-24,Margarita,3,120,360,Tarjeta
+2025-09-24,Margarita,2,120,240,Efectivo
+2025-09-24,Pepperoni,1,140,140,Efectivo
+2025-09-24,Rústica Especial,4,180,720,Efectivo
+2025-09-24,4 Quesos,3,155,465,Tarjeta
+2025-09-24,Agua fresca,3,30,90,Efectivo
+2025-09-26,Pepperoni,3,140,420,Efectivo
+2025-09-26,BBQ Pollo,1,170,170,Efectivo
+2025-09-26,Agua fresca,4,30,120,Efectivo
+2025-09-26,Rebanada de pay,3,55,165,Efectivo
+2025-09-26,BBQ Pollo,2,170,340,Efectivo
+2025-09-26,Galletas chispas chocolate,4,25,100,Tarjeta
+2025-09-26,Margarita,2,120,240,Efectivo
+2025-09-26,4 Quesos,3,155,465,Efectivo
+2025-09-26,Conchas,4,15,60,Tarjeta
+2025-09-26,Margarita,3,120,360,Tarjeta
+2025-09-26,Vegetariana,2,145,290,Efectivo
+2025-09-26,Pepperoni,2,140,280,Efectivo
+2025-09-26,De la Casa,3,190,570,Tarjeta
+2025-09-26,Conchas,6,15,90,Tarjeta
+2025-09-26,Mexicana,2,160,320,Efectivo
+2025-09-27,Roles de canela,2,35,70,Tarjeta
+2025-09-27,Refresco,1,25,25,Tarjeta
+2025-09-27,Pepperoni,1,140,140,Efectivo
+2025-09-27,Café americano,4,35,140,Tarjeta
+2025-09-27,Margarita,1,120,120,Tarjeta
+2025-09-27,Cuernos,3,30,90,Efectivo
+2025-09-27,Galletas chispas chocolate,4,25,100,Tarjeta
+2025-09-27,Mexicana,1,160,160,Tarjeta
+2025-09-27,Hawaiana,2,150,300,Efectivo
+2025-09-27,Vegetariana,1,145,145,Tarjeta
+2025-09-27,Café capuchino,3,45,135,Tarjeta
+2025-09-27,Pepperoni,4,140,560,Tarjeta
+2025-09-27,Hawaiana,3,150,450,Efectivo
+2025-09-27,Margarita,4,120,480,Efectivo
+2025-09-27,Mexicana,2,160,320,Efectivo
+2025-09-27,Tiramisú porción,4,65,260,Tarjeta
+2025-09-27,BBQ Pollo,2,170,340,Efectivo
+2025-09-27,BBQ Pollo,2,170,340,Efectivo
+2025-09-27,BBQ Pollo,3,170,510,Tarjeta
+2025-09-27,Hawaiana,2,150,300,Efectivo
+2025-09-28,Mexicana,1,160,160,Tarjeta
+2025-09-28,Mexicana,2,160,320,Efectivo
+2025-09-28,Champiñones,3,150,450,Efectivo
+2025-09-28,Pepperoni,2,140,280,Tarjeta
+2025-09-28,4 Quesos,1,155,155,Tarjeta
+2025-09-28,Hawaiana,3,150,450,Tarjeta
+2025-09-28,BBQ Pollo,1,170,170,Efectivo
+2025-09-28,Margarita,1,120,120,Efectivo
+2025-09-28,Mexicana,1,160,160,Tarjeta
+2025-09-28,Mexicana,2,160,320,Tarjeta
+2025-09-28,Galletas chispas chocolate,2,25,50,Tarjeta
+2025-09-28,Tiramisú porción,5,65,325,Efectivo
+2025-09-28,Rústica Especial,3,180,540,Efectivo
+2025-09-28,Mexicana,3,160,480,Tarjeta
+2025-09-28,Limonada,1,30,30,Efectivo
+2025-09-28,4 Quesos,2,155,310,Tarjeta
+2025-09-28,De la Casa,3,190,570,Efectivo
+2025-09-28,Margarita,3,120,360,Tarjeta
+2025-09-28,Vegetariana,2,145,290,Tarjeta
+2025-09-30,Pepperoni,2,140,280,Efectivo
+2025-09-30,Margarita,1,120,120,Tarjeta
+2025-09-30,Margarita,3,120,360,Efectivo
+2025-09-30,Rústica Especial,1,180,180,Efectivo
+2025-09-30,4 Quesos,2,155,310,Efectivo
+2025-09-30,Hawaiana,2,150,300,Tarjeta
+2025-09-30,Tiramisú porción,3,65,195,Tarjeta
+2025-09-30,Roles de canela,3,35,105,Efectivo
+2025-09-30,Margarita,4,120,480,Efectivo
+2025-09-30,Pepperoni,3,140,420,Tarjeta
+2025-10-01,Pepperoni,2,140,280,Efectivo
+2025-10-01,Hawaiana,3,150,450,Efectivo
+2025-10-01,Conchas,5,15,75,Efectivo
+2025-10-01,Pan de muerto chico,3,45,135,Efectivo
+2025-10-01,Café americano,1,35,35,Efectivo
+2025-10-01,Tiramisú porción,3,65,195,Efectivo
+2025-10-01,4 Quesos,3,155,465,Efectivo
+2025-10-01,De la Casa,4,190,760,Tarjeta
+2025-10-01,Margarita,4,120,480,Efectivo
+2025-10-01,Agua fresca,2,30,60,Efectivo
+2025-10-01,4 Quesos,3,155,465,Efectivo
+2025-10-01,Refresco,3,25,75,Efectivo
+2025-10-02,Mexicana,2,160,320,Efectivo
+2025-10-02,Pan de muerto chico,4,45,180,Tarjeta
+2025-10-02,BBQ Pollo,2,170,340,Efectivo
+2025-10-02,Cuernos,2,30,60,Efectivo
+2025-10-02,4 Quesos,3,155,465,Efectivo
+2025-10-02,Hawaiana,2,150,300,Tarjeta
+2025-10-02,Limonada,2,30,60,Tarjeta
+2025-10-02,Pan de muerto grande,3,60,180,Tarjeta
+2025-10-02,Tiramisú porción,4,65,260,Efectivo
+2025-10-02,De la Casa,1,190,190,Tarjeta
+2025-10-02,Margarita,3,120,360,Efectivo
+2025-10-02,Pepperoni,3,140,420,Tarjeta
+2025-10-02,Galletas chispas chocolate,1,25,25,Tarjeta
+2025-10-02,Limonada,2,30,60,Efectivo
+2025-10-03,De la Casa,2,190,380,Efectivo
+2025-10-03,Vegetariana,3,145,435,Efectivo
+2025-10-03,4 Quesos,2,155,310,Tarjeta
+2025-10-03,Pepperoni,4,140,560,Tarjeta
+2025-10-03,Roles de canela,3,35,105,Efectivo
+2025-10-03,4 Quesos,3,155,465,Tarjeta
+2025-10-03,Hawaiana,3,150,450,Tarjeta
+2025-10-03,Roles de canela,6,35,210,Efectivo
+2025-10-03,Rústica Especial,3,180,540,Efectivo
+2025-10-03,Vegetariana,3,145,435,Tarjeta
+2025-10-03,De la Casa,4,190,760,Tarjeta
+2025-10-04,Hawaiana,1,150,150,Efectivo
+2025-10-04,Pepperoni,1,140,140,Efectivo
+2025-10-04,Margarita,3,120,360,Tarjeta
+2025-10-04,Pepperoni,3,140,420,Efectivo
+2025-10-04,Margarita,2,120,240,Tarjeta
+2025-10-04,Pan de muerto chico,3,45,135,Efectivo
+2025-10-04,Champiñones,2,150,300,Efectivo
+2025-10-04,Pan de muerto grande,6,60,360,Efectivo
+2025-10-04,Café americano,3,35,105,Tarjeta
+2025-10-04,Roles de canela,2,35,70,Tarjeta
+2025-10-04,Margarita,2,120,240,Tarjeta
+2025-10-04,Conchas,2,15,30,Efectivo
+2025-10-04,Champiñones,4,150,600,Efectivo
+2025-10-04,Hawaiana,4,150,600,Efectivo
+2025-10-04,Hawaiana,2,150,300,Efectivo
+2025-10-04,Margarita,3,120,360,Efectivo
+2025-10-04,Hawaiana,2,150,300,Efectivo
+2025-10-04,Margarita,2,120,240,Tarjeta
+2025-10-05,Refresco,4,25,100,Efectivo
+2025-10-05,Mexicana,3,160,480,Tarjeta
+2025-10-05,Conchas,2,15,30,Efectivo
+2025-10-05,BBQ Pollo,2,170,340,Efectivo
+2025-10-05,Café capuchino,3,45,135,Efectivo
+2025-10-05,Margarita,3,120,360,Tarjeta
+2025-10-05,Pepperoni,4,140,560,Tarjeta
+2025-10-05,Hawaiana,3,150,450,Efectivo
+2025-10-05,Rebanada de pay,3,55,165,Efectivo
+2025-10-05,Conchas,2,15,30,Tarjeta
+2025-10-05,Mexicana,2,160,320,Tarjeta
+2025-10-05,Pepperoni,2,140,280,Efectivo
+2025-10-05,Pepperoni,2,140,280,Efectivo
+2025-10-05,BBQ Pollo,4,170,680,Efectivo
+2025-10-05,Margarita,4,120,480,Efectivo
+2025-10-07,Roles de canela,4,35,140,Efectivo
+2025-10-07,De la Casa,4,190,760,Tarjeta
+2025-10-07,Cuernos,6,30,180,Efectivo
+2025-10-07,Tiramisú porción,8,65,520,Efectivo
+2025-10-07,Rústica Especial,3,180,540,Efectivo
+2025-10-07,4 Quesos,2,155,310,Efectivo
+2025-10-07,Rústica Especial,3,180,540,Efectivo
+2025-10-07,Limonada,1,30,30,Tarjeta
+2025-10-07,Rústica Especial,3,180,540,Efectivo
+2025-10-07,Roles de canela,6,35,210,Tarjeta
+2025-10-08,4 Quesos,3,155,465,Tarjeta
+2025-10-08,Café capuchino,1,45,45,Efectivo
+2025-10-08,Refresco,4,25,100,Tarjeta
+2025-10-08,Hawaiana,4,150,600,Efectivo
+2025-10-08,Champiñones,3,150,450,Efectivo
+2025-10-08,Hawaiana,4,150,600,Efectivo
+2025-10-08,Champiñones,2,150,300,Efectivo
+2025-10-08,Hawaiana,4,150,600,Tarjeta
+2025-10-08,Tiramisú porción,1,65,65,Efectivo
+2025-10-08,Roles de canela,5,35,175,Efectivo
+2025-10-08,Hawaiana,3,150,450,Efectivo
+2025-10-09,Galletas chispas chocolate,3,25,75,Efectivo
+2025-10-09,Vegetariana,3,145,435,Efectivo
+2025-10-09,Rebanada de pay,4,55,220,Efectivo
+2025-10-09,Rebanada de pay,5,55,275,Tarjeta
+2025-10-09,Margarita,2,120,240,Efectivo
+2025-10-09,Margarita,4,120,480,Tarjeta
+2025-10-09,4 Quesos,4,155,620,Efectivo
+2025-10-09,4 Quesos,3,155,465,Tarjeta
+2025-10-09,BBQ Pollo,4,170,680,Tarjeta
+2025-10-09,Mexicana,3,160,480,Efectivo
+2025-10-10,Hawaiana,4,150,600,Efectivo
+2025-10-10,Rústica Especial,4,180,720,Efectivo
+2025-10-10,4 Quesos,3,155,465,Tarjeta
+2025-10-10,De la Casa,3,190,570,Tarjeta
+2025-10-10,Agua fresca,4,30,120,Efectivo
+2025-10-10,Hawaiana,3,150,450,Efectivo
+2025-10-10,Conchas,5,15,75,Efectivo
+2025-10-10,Pepperoni,2,140,280,Efectivo
+2025-10-10,Rústica Especial,4,180,720,Efectivo
+2025-10-10,BBQ Pollo,3,170,510,Efectivo
+2025-10-10,Mexicana,3,160,480,Efectivo
+2025-10-11,Mexicana,2,160,320,Tarjeta
+2025-10-11,Pan de muerto grande,6,60,360,Efectivo
+2025-10-11,Rústica Especial,2,180,360,Efectivo
+2025-10-11,Pepperoni,3,140,420,Tarjeta
+2025-10-11,Hawaiana,3,150,450,Efectivo
+2025-10-11,Pepperoni,3,140,420,Efectivo
+2025-10-11,Pan de muerto chico,6,45,270,Tarjeta
+2025-10-11,BBQ Pollo,2,170,340,Tarjeta
+2025-10-11,Margarita,1,120,120,Efectivo
+2025-10-11,Pepperoni,4,140,560,Tarjeta
+2025-10-11,Hawaiana,2,150,300,Tarjeta
+2025-10-11,Pan de muerto chico,6,45,270,Efectivo
+2025-10-11,Champiñones,4,150,600,Efectivo
+2025-10-11,Refresco,3,25,75,Efectivo
+2025-10-11,Champiñones,3,150,450,Efectivo
+2025-10-11,Café capuchino,2,45,90,Tarjeta
+2025-10-11,Mexicana,2,160,320,Tarjeta
+2025-10-12,Pepperoni,2,140,280,Efectivo
+2025-10-12,Vegetariana,3,145,435,Tarjeta
+2025-10-12,Rústica Especial,3,180,540,Tarjeta
+2025-10-12,BBQ Pollo,3,170,510,Efectivo
+2025-10-12,Café americano,2,35,70,Efectivo
+2025-10-12,4 Quesos,1,155,155,Tarjeta
+2025-10-12,Mexicana,1,160,160,Tarjeta
+2025-10-12,Vegetariana,3,145,435,Efectivo
+2025-10-12,Café americano,3,35,105,Tarjeta
+2025-10-12,Mexicana,1,160,160,Efectivo
+2025-10-12,Limonada,4,30,120,Efectivo
+2025-10-12,Rebanada de pay,2,55,110,Tarjeta
+2025-10-12,Galletas chispas chocolate,3,25,75,Efectivo
+2025-10-12,BBQ Pollo,3,170,510,Efectivo
+2025-10-12,Pan de muerto chico,3,45,135,Efectivo
+2025-10-12,Margarita,3,120,360,Efectivo
+2025-10-12,Rebanada de pay,6,55,330,Efectivo
+2025-10-12,Pepperoni,4,140,560,Efectivo
+2025-10-12,Champiñones,2,150,300,Tarjeta
+2025-10-12,Vegetariana,3,145,435,Efectivo
+2025-10-14,Margarita,2,120,240,Tarjeta
+2025-10-14,Tiramisú porción,8,65,520,Efectivo
+2025-10-14,Pepperoni,1,140,140,Tarjeta
+2025-10-14,Pepperoni,3,140,420,Efectivo
+2025-10-14,Vegetariana,2,145,290,Efectivo
+2025-10-14,Tiramisú porción,5,65,325,Efectivo
+2025-10-14,Roles de canela,6,35,210,Efectivo
+2025-10-14,Vegetariana,4,145,580,Efectivo
+2025-10-14,BBQ Pollo,2,170,340,Efectivo
+2025-10-14,Pepperoni,2,140,280,Tarjeta
+2025-10-14,Pepperoni,4,140,560,Tarjeta
+2025-10-14,Café americano,3,35,105,Efectivo
+2025-10-15,Rústica Especial,2,180,360,Efectivo
+2025-10-15,Mexicana,3,160,480,Efectivo
+2025-10-15,Limonada,3,30,90,Tarjeta
+2025-10-15,Vegetariana,1,145,145,Tarjeta
+2025-10-15,Vegetariana,3,145,435,Tarjeta
+2025-10-15,Margarita,3,120,360,Efectivo
+2025-10-15,Margarita,2,120,240,Efectivo
+2025-10-15,Mexicana,2,160,320,Tarjeta
+2025-10-15,Pepperoni,2,140,280,Efectivo
+2025-10-15,Pan de muerto chico,5,45,225,Efectivo
+2025-10-15,Café capuchino,4,45,180,Efectivo
+2025-10-15,Pepperoni,4,140,560,Efectivo
+2025-10-16,Margarita,3,120,360,Tarjeta
+2025-10-16,Galletas chispas chocolate,6,25,150,Tarjeta
+2025-10-16,Cuernos,3,30,90,Tarjeta
+2025-10-16,Rústica Especial,1,180,180,Tarjeta
+2025-10-16,Hawaiana,3,150,450,Tarjeta
+2025-10-16,Pepperoni,2,140,280,Tarjeta
+2025-10-16,De la Casa,3,190,570,Tarjeta
+2025-10-16,Tiramisú porción,8,65,520,Tarjeta
+2025-10-16,Pepperoni,1,140,140,Tarjeta
+2025-10-16,Café capuchino,1,45,45,Efectivo
+2025-10-16,Margarita,2,120,240,Tarjeta
+2025-10-16,BBQ Pollo,2,170,340,Efectivo
+2025-10-16,Cuernos,5,30,150,Efectivo
+2025-10-16,Hawaiana,3,150,450,Efectivo
+2025-10-16,Margarita,2,120,240,Tarjeta
+2025-10-17,Champiñones,3,150,450,Efectivo
+2025-10-17,4 Quesos,2,155,310,Tarjeta
+2025-10-17,Pan de muerto grande,8,60,480,Efectivo
+2025-10-17,Hawaiana,1,150,150,Tarjeta
+2025-10-17,BBQ Pollo,4,170,680,Tarjeta
+2025-10-17,Hawaiana,1,150,150,Efectivo
+2025-10-17,Margarita,4,120,480,Efectivo
+2025-10-17,Pepperoni,3,140,420,Efectivo
+2025-10-17,Champiñones,4,150,600,Efectivo
+2025-10-17,Refresco,1,25,25,Efectivo
+2025-10-17,Pan de muerto grande,6,60,360,Efectivo
+2025-10-17,Café capuchino,2,45,90,Tarjeta
+2025-10-17,4 Quesos,3,155,465,Efectivo
+2025-10-18,Galletas chispas chocolate,4,25,100,Tarjeta
+2025-10-18,Galletas chispas chocolate,4,25,100,Efectivo
+2025-10-18,BBQ Pollo,1,170,170,Efectivo
+2025-10-18,Champiñones,3,150,450,Tarjeta
+2025-10-18,De la Casa,4,190,760,Efectivo
+2025-10-18,Conchas,4,15,60,Tarjeta
+2025-10-18,Café americano,3,35,105,Efectivo
+2025-10-18,Galletas chispas chocolate,8,25,200,Tarjeta
+2025-10-18,4 Quesos,2,155,310,Efectivo
+2025-10-18,Pepperoni,3,140,420,Efectivo
+2025-10-18,Café capuchino,3,45,135,Tarjeta
+2025-10-18,Margarita,3,120,360,Efectivo
+2025-10-18,Margarita,4,120,480,Tarjeta
+2025-10-18,Vegetariana,3,145,435,Efectivo
+2025-10-18,Pepperoni,3,140,420,Tarjeta
+2025-10-18,Margarita,2,120,240,Efectivo
+2025-10-18,Conchas,4,15,60,Tarjeta
+2025-10-19,Champiñones,3,150,450,Efectivo
+2025-10-19,Agua fresca,4,30,120,Tarjeta
+2025-10-19,Margarita,3,120,360,Efectivo
+2025-10-19,Mexicana,2,160,320,Efectivo
+2025-10-19,Rebanada de pay,4,55,220,Tarjeta
+2025-10-19,Champiñones,3,150,450,Tarjeta
+2025-10-19,Pepperoni,4,140,560,Efectivo
+2025-10-19,Vegetariana,3,145,435,Efectivo
+2025-10-19,Rústica Especial,3,180,540,Tarjeta
+2025-10-19,Cuernos,3,30,90,Efectivo
+2025-10-22,Mexicana,2,160,320,Efectivo
+2025-10-22,Mexicana,1,160,160,Efectivo
+2025-10-22,Vegetariana,2,145,290,Efectivo
+2025-10-22,4 Quesos,2,155,310,Efectivo
+2025-10-22,Pan de muerto grande,4,60,240,Efectivo
+2025-10-22,Limonada,2,30,60,Efectivo
+2025-10-22,Mexicana,2,160,320,Efectivo
+2025-10-22,Cuernos,5,30,150,Tarjeta
+2025-10-22,Mexicana,4,160,640,Tarjeta
+2025-10-22,BBQ Pollo,2,170,340,Tarjeta
+2025-10-22,Refresco,3,25,75,Efectivo
+2025-10-22,Pan de muerto grande,4,60,240,Efectivo
+2025-10-22,Pan de muerto chico,3,45,135,Tarjeta
+2025-10-22,Margarita,4,120,480,Efectivo
+2025-10-23,BBQ Pollo,3,170,510,Efectivo
+2025-10-23,Hawaiana,3,150,450,Efectivo
+2025-10-23,Mexicana,1,160,160,Tarjeta
+2025-10-23,Hawaiana,3,150,450,Tarjeta
+2025-10-23,Limonada,1,30,30,Efectivo
+2025-10-23,Hawaiana,3,150,450,Efectivo
+2025-10-23,Pepperoni,3,140,420,Tarjeta
+2025-10-23,Pan de muerto grande,4,60,240,Efectivo
+2025-10-23,Hawaiana,3,150,450,Efectivo
+2025-10-23,Pepperoni,4,140,560,Tarjeta
+2025-10-23,Limonada,4,30,120,Tarjeta
+2025-10-23,Hawaiana,3,150,450,Efectivo
+2025-10-25,Margarita,1,120,120,Efectivo
+2025-10-25,Hawaiana,2,150,300,Efectivo
+2025-10-25,Pepperoni,2,140,280,Efectivo
+2025-10-25,Pan de muerto grande,8,60,480,Tarjeta
+2025-10-25,Champiñones,1,150,150,Tarjeta
+2025-10-25,Pepperoni,2,140,280,Tarjeta
+2025-10-25,Café americano,3,35,105,Efectivo
+2025-10-25,De la Casa,3,190,570,Tarjeta
+2025-10-25,Champiñones,1,150,150,Efectivo
+2025-10-25,Margarita,2,120,240,Tarjeta
+2025-10-25,Agua fresca,2,30,60,Tarjeta
+2025-10-25,Margarita,2,120,240,Tarjeta
+2025-10-25,Cuernos,2,30,60,Efectivo
+2025-10-25,Café capuchino,1,45,45,Tarjeta
+2025-10-25,Pan de muerto chico,4,45,180,Tarjeta
+2025-10-25,Margarita,4,120,480,Efectivo
+2025-10-25,Agua fresca,4,30,120,Efectivo
+2025-10-25,Margarita,3,120,360,Efectivo
+2025-10-25,De la Casa,4,190,760,Tarjeta
+2025-10-25,BBQ Pollo,4,170,680,Tarjeta
+2025-10-26,Margarita,3,120,360,Efectivo
+2025-10-26,Champiñones,3,150,450,Efectivo
+2025-10-26,Tiramisú porción,4,65,260,Tarjeta
+2025-10-26,Refresco,3,25,75,Efectivo
+2025-10-26,Pepperoni,3,140,420,Efectivo
+2025-10-26,Mexicana,4,160,640,Efectivo
+2025-10-26,Margarita,2,120,240,Efectivo
+2025-10-26,Margarita,3,120,360,Tarjeta
+2025-10-28,BBQ Pollo,1,170,170,Tarjeta
+2025-10-28,Vegetariana,2,145,290,Efectivo
+2025-10-28,4 Quesos,1,155,155,Efectivo
+2025-10-28,Hawaiana,4,150,600,Tarjeta
+2025-10-28,4 Quesos,2,155,310,Efectivo
+2025-10-28,Pan de muerto chico,8,45,360,Efectivo
+2025-10-28,Tiramisú porción,5,65,325,Tarjeta
+2025-10-28,Pepperoni,4,140,560,Efectivo
+2025-10-28,Pepperoni,3,140,420,Efectivo
+2025-10-28,Margarita,3,120,360,Efectivo
+2025-10-28,Refresco,2,25,50,Efectivo
+2025-10-28,Pepperoni,3,140,420,Efectivo
+2025-10-28,Tiramisú porción,4,65,260,Tarjeta
+2025-10-29,Margarita,3,120,360,Tarjeta
+2025-10-29,Café capuchino,3,45,135,Tarjeta
+2025-10-29,Hawaiana,3,150,450,Efectivo
+2025-10-29,Pepperoni,2,140,280,Efectivo
+2025-10-29,Pepperoni,3,140,420,Tarjeta
+2025-10-29,4 Quesos,3,155,465,Efectivo
+2025-10-29,Mexicana,1,160,160,Efectivo
+2025-10-29,Limonada,2,30,60,Efectivo
+2025-10-29,Margarita,2,120,240,Efectivo
+2025-10-29,4 Quesos,3,155,465,Efectivo
+2025-10-29,Champiñones,2,150,300,Efectivo
+2025-10-29,Hawaiana,3,150,450,Efectivo
+2025-10-29,Pan de muerto grande,3,60,180,Tarjeta
+2025-10-29,Hawaiana,2,150,300,Tarjeta
+2025-10-29,Cuernos,3,30,90,Tarjeta
+2025-10-29,BBQ Pollo,4,170,680,Tarjeta
+2025-10-30,BBQ Pollo,4,170,680,Efectivo
+2025-10-30,Rústica Especial,3,180,540,Efectivo
+2025-10-30,Margarita,3,120,360,Efectivo
+2025-10-30,Pepperoni,3,140,420,Efectivo
+2025-10-30,Margarita,4,120,480,Tarjeta
+2025-10-30,Limonada,4,30,120,Efectivo
+2025-10-30,Mexicana,2,160,320,Tarjeta
+2025-10-30,Hawaiana,4,150,600,Tarjeta
+2025-10-30,4 Quesos,2,155,310,Efectivo
+2025-10-30,Champiñones,2,150,300,Efectivo
+2025-10-31,Pan de muerto chico,8,45,360,Tarjeta
+2025-10-31,Pan de muerto grande,1,60,60,Efectivo
+2025-10-31,Margarita,2,120,240,Efectivo
+2025-10-31,Margarita,3,120,360,Efectivo
+2025-10-31,Mexicana,3,160,480,Efectivo
+2025-10-31,Pan de muerto grande,2,60,120,Tarjeta
+2025-10-31,Refresco,2,25,50,Efectivo
+2025-10-31,Pan de muerto chico,6,45,270,Tarjeta
+2025-10-31,4 Quesos,2,155,310,Efectivo
+2025-10-31,Café americano,4,35,140,Efectivo
+2025-10-31,Hawaiana,4,150,600,Efectivo
+2025-10-31,Rebanada de pay,4,55,220,Efectivo
+2025-11-01,Margarita,2,120,240,Efectivo
+2025-11-01,Margarita,3,120,360,Efectivo
+2025-11-01,Pan de muerto chico,3,45,135,Tarjeta
+2025-11-01,Margarita,3,120,360,Efectivo
+2025-11-01,Champiñones,4,150,600,Efectivo
+2025-11-01,Margarita,3,120,360,Efectivo
+2025-11-01,Vegetariana,3,145,435,Tarjeta
+2025-11-01,Tiramisú porción,3,65,195,Efectivo
+2025-11-01,Conchas,4,15,60,Efectivo
+2025-11-01,Refresco,3,25,75,Tarjeta
+2025-11-01,Rústica Especial,2,180,360,Efectivo
+2025-11-01,Mexicana,4,160,640,Efectivo
+2025-11-01,Café capuchino,2,45,90,Tarjeta
+2025-11-01,De la Casa,3,190,570,Tarjeta
+2025-11-01,De la Casa,3,190,570,Efectivo
+2025-11-02,Café americano,2,35,70,Efectivo
+2025-11-02,Hawaiana,3,150,450,Efectivo
+2025-11-02,Galletas chispas chocolate,4,25,100,Tarjeta
+2025-11-02,Champiñones,3,150,450,Efectivo
+2025-11-02,Mexicana,2,160,320,Tarjeta
+2025-11-02,Pepperoni,4,140,560,Tarjeta
+2025-11-02,Mexicana,2,160,320,Efectivo
+2025-11-02,Pan de muerto chico,2,45,90,Tarjeta
+2025-11-02,Mexicana,4,160,640,Tarjeta
+2025-11-04,Galletas chispas chocolate,1,25,25,Efectivo
+2025-11-04,Margarita,2,120,240,Tarjeta
+2025-11-04,Margarita,3,120,360,Efectivo
+2025-11-04,Café americano,2,35,70,Efectivo
+2025-11-04,Café americano,2,35,70,Efectivo
+2025-11-04,Café capuchino,2,45,90,Efectivo
+2025-11-04,De la Casa,3,190,570,Efectivo
+2025-11-04,Hawaiana,4,150,600,Efectivo
+2025-11-04,Pepperoni,2,140,280,Efectivo
+2025-11-04,4 Quesos,3,155,465,Tarjeta
+2025-11-04,Margarita,4,120,480,Tarjeta
+2025-11-04,Cuernos,6,30,180,Efectivo
+2025-11-04,Champiñones,4,150,600,Efectivo
+2025-11-04,De la Casa,2,190,380,Efectivo
+2025-11-05,Mexicana,3,160,480,Efectivo
+2025-11-05,Pepperoni,1,140,140,Efectivo
+2025-11-05,Tiramisú porción,3,65,195,Tarjeta
+2025-11-05,Pepperoni,2,140,280,Efectivo
+2025-11-05,Champiñones,1,150,150,Efectivo
+2025-11-05,Vegetariana,3,145,435,Tarjeta
+2025-11-05,4 Quesos,1,155,155,Efectivo
+2025-11-05,De la Casa,2,190,380,Efectivo
+2025-11-05,Mexicana,1,160,160,Tarjeta
+2025-11-05,Pepperoni,1,140,140,Efectivo
+2025-11-05,Pepperoni,3,140,420,Efectivo
+2025-11-05,Hawaiana,2,150,300,Efectivo
+2025-11-05,Hawaiana,3,150,450,Tarjeta
+2025-11-06,Galletas chispas chocolate,4,25,100,Tarjeta
+2025-11-06,Pan de muerto grande,6,60,360,Efectivo
+2025-11-06,Margarita,3,120,360,Tarjeta
+2025-11-06,Tiramisú porción,4,65,260,Efectivo
+2025-11-06,Margarita,2,120,240,Tarjeta
+2025-11-06,Margarita,3,120,360,Tarjeta
+2025-11-06,Pepperoni,2,140,280,Efectivo
+2025-11-06,Rústica Especial,1,180,180,Tarjeta
+2025-11-06,4 Quesos,3,155,465,Tarjeta
+2025-11-06,Pepperoni,2,140,280,Tarjeta
+2025-11-06,Rústica Especial,3,180,540,Tarjeta
+2025-11-06,De la Casa,3,190,570,Efectivo
+2025-11-06,4 Quesos,2,155,310,Efectivo
+2025-11-07,Hawaiana,2,150,300,Tarjeta
+2025-11-07,BBQ Pollo,2,170,340,Efectivo
+2025-11-07,Mexicana,3,160,480,Tarjeta
+2025-11-07,Limonada,1,30,30,Efectivo
+2025-11-07,Refresco,1,25,25,Tarjeta
+2025-11-07,Mexicana,4,160,640,Efectivo
+2025-11-07,4 Quesos,3,155,465,Tarjeta
+2025-11-07,Pan de muerto grande,4,60,240,Tarjeta
+2025-11-07,Vegetariana,2,145,290,Efectivo
+2025-11-07,Hawaiana,2,150,300,Efectivo
+2025-11-07,Limonada,2,30,60,Efectivo
+2025-11-07,Mexicana,3,160,480,Tarjeta
+2025-11-08,Limonada,3,30,90,Efectivo
+2025-11-08,Hawaiana,2,150,300,Efectivo
+2025-11-08,Pepperoni,1,140,140,Tarjeta
+2025-11-08,De la Casa,2,190,380,Tarjeta
+2025-11-08,Rústica Especial,2,180,360,Efectivo
+2025-11-08,Hawaiana,2,150,300,Tarjeta
+2025-11-08,4 Quesos,2,155,310,Efectivo
+2025-11-08,Hawaiana,3,150,450,Efectivo
+2025-11-08,Margarita,3,120,360,Tarjeta
+2025-11-08,Rebanada de pay,5,55,275,Efectivo
+2025-11-08,Champiñones,1,150,150,Efectivo
+2025-11-08,BBQ Pollo,2,170,340,Efectivo
+2025-11-08,BBQ Pollo,2,170,340,Efectivo
+2025-11-08,Pan de muerto grande,4,60,240,Tarjeta
+2025-11-08,Pepperoni,3,140,420,Efectivo
+2025-11-08,Margarita,1,120,120,Efectivo
+2025-11-08,Vegetariana,4,145,580,Efectivo
+2025-11-08,Champiñones,3,150,450,Efectivo
+2025-11-08,Margarita,3,120,360,Efectivo
+2025-11-09,Hawaiana,2,150,300,Efectivo
+2025-11-09,Mexicana,2,160,320,Efectivo
+2025-11-09,Hawaiana,2,150,300,Efectivo
+2025-11-09,Refresco,1,25,25,Tarjeta
+2025-11-09,Champiñones,1,150,150,Efectivo
+2025-11-09,Tiramisú porción,5,65,325,Efectivo
+2025-11-09,Hawaiana,3,150,450,Efectivo
+2025-11-09,Limonada,3,30,90,Tarjeta
+2025-11-09,4 Quesos,2,155,310,Efectivo
+2025-11-09,Café americano,2,35,70,Efectivo
+2025-11-09,Champiñones,3,150,450,Tarjeta
+2025-11-09,Mexicana,1,160,160,Efectivo
+2025-11-11,Rebanada de pay,3,55,165,Tarjeta
+2025-11-11,Hawaiana,3,150,450,Efectivo
+2025-11-11,Café americano,3,35,105,Tarjeta
+2025-11-11,Hawaiana,2,150,300,Tarjeta
+2025-11-11,Café capuchino,3,45,135,Efectivo
+2025-11-11,4 Quesos,3,155,465,Efectivo
+2025-11-11,Champiñones,4,150,600,Efectivo
+2025-11-11,4 Quesos,4,155,620,Efectivo
+2025-11-11,Hawaiana,4,150,600,Efectivo
+2025-11-11,Vegetariana,3,145,435,Efectivo
+2025-11-13,Hawaiana,1,150,150,Efectivo
+2025-11-13,Roles de canela,5,35,175,Efectivo
+2025-11-13,Margarita,3,120,360,Efectivo
+2025-11-13,Margarita,2,120,240,Efectivo
+2025-11-13,Pepperoni,3,140,420,Tarjeta
+2025-11-13,Agua fresca,2,30,60,Efectivo
+2025-11-13,Cuernos,3,30,90,Efectivo
+2025-11-13,De la Casa,3,190,570,Tarjeta
+2025-11-13,BBQ Pollo,2,170,340,Efectivo
+2025-11-13,Agua fresca,3,30,90,Efectivo
+2025-11-13,Champiñones,4,150,600,Efectivo
+2025-11-13,BBQ Pollo,2,170,340,Efectivo
+2025-11-13,Limonada,2,30,60,Efectivo
+2025-11-13,Margarita,4,120,480,Efectivo
+2025-11-14,Pepperoni,3,140,420,Efectivo
+2025-11-14,Tiramisú porción,8,65,520,Efectivo
+2025-11-14,Champiñones,1,150,150,Tarjeta
+2025-11-14,Margarita,2,120,240,Tarjeta
+2025-11-14,Rústica Especial,2,180,360,Efectivo
+2025-11-14,Pan de muerto grande,6,60,360,Efectivo
+2025-11-14,Pan de muerto grande,8,60,480,Tarjeta
+2025-11-14,Agua fresca,3,30,90,Efectivo
+2025-11-14,4 Quesos,3,155,465,Efectivo
+2025-11-14,Roles de canela,2,35,70,Tarjeta
+2025-11-14,Pepperoni,2,140,280,Efectivo
+2025-11-14,4 Quesos,2,155,310,Efectivo
+2025-11-14,Pepperoni,4,140,560,Efectivo
+2025-11-14,Roles de canela,1,35,35,Efectivo
+2025-11-15,Hawaiana,2,150,300,Efectivo
+2025-11-15,Hawaiana,2,150,300,Efectivo
+2025-11-15,Mexicana,1,160,160,Tarjeta
+2025-11-15,Tiramisú porción,2,65,130,Efectivo
+2025-11-15,Roles de canela,2,35,70,Tarjeta
+2025-11-15,Hawaiana,1,150,150,Efectivo
+2025-11-15,Rústica Especial,2,180,360,Tarjeta
+2025-11-15,Limonada,2,30,60,Efectivo
+2025-11-15,BBQ Pollo,1,170,170,Efectivo
+2025-11-15,BBQ Pollo,1,170,170,Efectivo
+2025-11-15,Rebanada de pay,8,55,440,Efectivo
+2025-11-15,Rústica Especial,2,180,360,Tarjeta
+2025-11-15,BBQ Pollo,4,170,680,Efectivo
+2025-11-15,Refresco,1,25,25,Efectivo
+2025-11-15,Rebanada de pay,1,55,55,Efectivo
+2025-11-15,Champiñones,2,150,300,Efectivo
+2025-11-15,Hawaiana,3,150,450,Efectivo
+2025-11-15,Conchas,1,15,15,Efectivo
+2025-11-15,Mexicana,2,160,320,Efectivo
+2025-11-15,Pan de muerto chico,3,45,135,Efectivo
+2025-11-16,Margarita,1,120,120,Efectivo
+2025-11-16,Champiñones,3,150,450,Tarjeta
+2025-11-16,Hawaiana,3,150,450,Efectivo
+2025-11-16,Refresco,1,25,25,Tarjeta
+2025-11-16,Mexicana,3,160,480,Efectivo
+2025-11-16,De la Casa,3,190,570,Tarjeta
+2025-11-16,Hawaiana,3,150,450,Efectivo
+2025-11-16,4 Quesos,3,155,465,Efectivo
+2025-11-16,Hawaiana,3,150,450,Efectivo
+2025-11-16,Hawaiana,3,150,450,Efectivo
+2025-11-16,Pepperoni,2,140,280,Tarjeta
+2025-11-16,Hawaiana,2,150,300,Tarjeta
+2025-11-16,Galletas chispas chocolate,5,25,125,Tarjeta
+2025-11-16,Hawaiana,4,150,600,Tarjeta
+2025-11-16,Champiñones,2,150,300,Tarjeta
+2025-11-19,Pepperoni,2,140,280,Efectivo
+2025-11-19,Mexicana,1,160,160,Efectivo
+2025-11-19,Rústica Especial,1,180,180,Tarjeta
+2025-11-19,Tiramisú porción,6,65,390,Efectivo
+2025-11-19,Roles de canela,6,35,210,Efectivo
+2025-11-19,Margarita,3,120,360,Tarjeta
+2025-11-19,Café americano,3,35,105,Tarjeta
+2025-11-19,Rústica Especial,4,180,720,Tarjeta
+2025-11-19,4 Quesos,3,155,465,Efectivo
+2025-11-19,4 Quesos,2,155,310,Efectivo
+2025-11-19,Mexicana,3,160,480,Tarjeta
+2025-11-19,Mexicana,3,160,480,Tarjeta
+2025-11-20,Conchas,1,15,15,Efectivo
+2025-11-20,Mexicana,3,160,480,Efectivo
+2025-11-20,Margarita,2,120,240,Tarjeta
+2025-11-20,Limonada,2,30,60,Efectivo
+2025-11-20,Galletas chispas chocolate,6,25,150,Tarjeta
+2025-11-20,Pepperoni,2,140,280,Efectivo
+2025-11-20,Vegetariana,3,145,435,Efectivo
+2025-11-20,Limonada,2,30,60,Efectivo
+2025-11-20,Café capuchino,1,45,45,Efectivo
+2025-11-20,Pepperoni,2,140,280,Efectivo
+2025-11-20,Margarita,4,120,480,Efectivo
+2025-11-21,BBQ Pollo,1,170,170,Tarjeta
+2025-11-21,Agua fresca,2,30,60,Tarjeta
+2025-11-21,Pan de muerto grande,5,60,300,Efectivo
+2025-11-21,Margarita,2,120,240,Efectivo
+2025-11-21,De la Casa,3,190,570,Efectivo
+2025-11-21,Cuernos,3,30,90,Efectivo
+2025-11-21,Conchas,5,15,75,Efectivo
+2025-11-21,Agua fresca,2,30,60,Efectivo
+2025-11-21,Conchas,3,15,45,Tarjeta
+2025-11-21,Cuernos,4,30,120,Efectivo
+2025-11-21,Pan de muerto grande,4,60,240,Tarjeta
+2025-11-21,BBQ Pollo,2,170,340,Efectivo
+2025-11-21,Rebanada de pay,5,55,275,Tarjeta
+2025-11-21,4 Quesos,4,155,620,Efectivo
+2025-11-22,Champiñones,3,150,450,Efectivo
+2025-11-22,Margarita,1,120,120,Tarjeta
+2025-11-22,Hawaiana,1,150,150,Efectivo
+2025-11-22,BBQ Pollo,3,170,510,Efectivo
+2025-11-22,Rebanada de pay,4,55,220,Efectivo
+2025-11-22,Rústica Especial,3,180,540,Tarjeta
+2025-11-22,Champiñones,2,150,300,Efectivo
+2025-11-22,Cuernos,3,30,90,Tarjeta
+2025-11-22,Pan de muerto chico,5,45,225,Tarjeta
+2025-11-22,Limonada,3,30,90,Efectivo
+2025-11-22,De la Casa,2,190,380,Efectivo
+2025-11-22,Margarita,4,120,480,Tarjeta
+2025-11-22,Rústica Especial,4,180,720,Tarjeta
+2025-11-22,Rústica Especial,2,180,360,Tarjeta
+2025-11-22,Margarita,2,120,240,Efectivo
+2025-11-22,BBQ Pollo,3,170,510,Efectivo
+2025-11-23,Margarita,3,120,360,Tarjeta
+2025-11-23,Limonada,2,30,60,Tarjeta
+2025-11-23,Café capuchino,3,45,135,Tarjeta
+2025-11-23,Champiñones,3,150,450,Efectivo
+2025-11-23,Agua fresca,3,30,90,Efectivo
+2025-11-23,Vegetariana,2,145,290,Efectivo
+2025-11-23,Mexicana,3,160,480,Tarjeta
+2025-11-23,Hawaiana,4,150,600,Efectivo
+2025-11-23,Champiñones,4,150,600,Efectivo
+2025-11-23,Café capuchino,4,45,180,Tarjeta
+2025-11-23,De la Casa,3,190,570,Efectivo
+2025-11-23,Rústica Especial,2,180,360,Efectivo
+2025-11-23,Hawaiana,4,150,600,Efectivo
+2025-11-23,BBQ Pollo,3,170,510,Tarjeta
+2025-11-23,Mexicana,4,160,640,Efectivo
+2025-11-25,4 Quesos,1,155,155,Tarjeta
+2025-11-25,BBQ Pollo,2,170,340,Efectivo
+2025-11-25,Hawaiana,3,150,450,Efectivo
+2025-11-25,Pan de muerto chico,1,45,45,Tarjeta
+2025-11-25,Café capuchino,1,45,45,Efectivo
+2025-11-25,Hawaiana,2,150,300,Tarjeta
+2025-11-25,Margarita,3,120,360,Efectivo
+2025-11-25,De la Casa,2,190,380,Tarjeta
+2025-11-25,Hawaiana,3,150,450,Efectivo
+2025-11-25,Margarita,2,120,240,Efectivo
+2025-11-25,Margarita,2,120,240,Tarjeta
+2025-11-25,Pepperoni,2,140,280,Efectivo
+2025-11-25,Hawaiana,2,150,300,Efectivo
+2025-11-25,4 Quesos,3,155,465,Efectivo
+2025-11-25,Pepperoni,1,140,140,Efectivo
+2025-11-27,Rústica Especial,2,180,360,Tarjeta
+2025-11-27,Pepperoni,2,140,280,Tarjeta
+2025-11-27,Margarita,3,120,360,Efectivo
+2025-11-27,Hawaiana,3,150,450,Efectivo
+2025-11-27,Rústica Especial,3,180,540,Efectivo
+2025-11-27,De la Casa,2,190,380,Efectivo
+2025-11-27,Mexicana,2,160,320,Tarjeta
+2025-11-27,Mexicana,1,160,160,Efectivo
+2025-11-27,Galletas chispas chocolate,3,25,75,Tarjeta
+2025-11-27,Mexicana,4,160,640,Efectivo
+2025-11-27,Limonada,1,30,30,Tarjeta
+2025-11-27,Vegetariana,4,145,580,Efectivo
+2025-11-28,Roles de canela,4,35,140,Tarjeta
+2025-11-28,Hawaiana,2,150,300,Efectivo
+2025-11-28,Rústica Especial,3,180,540,Efectivo
+2025-11-28,Margarita,3,120,360,Tarjeta
+2025-11-28,Margarita,3,120,360,Efectivo
+2025-11-28,De la Casa,3,190,570,Tarjeta
+2025-11-28,Margarita,2,120,240,Efectivo
+2025-11-28,Conchas,3,15,45,Tarjeta
+2025-11-28,Margarita,4,120,480,Efectivo
+2025-11-28,Rústica Especial,3,180,540,Efectivo
+2025-11-28,Rústica Especial,4,180,720,Efectivo
+2025-11-29,Tiramisú porción,4,65,260,Efectivo
+2025-11-29,Margarita,2,120,240,Tarjeta
+2025-11-29,Rebanada de pay,3,55,165,Tarjeta
+2025-11-29,Margarita,3,120,360,Tarjeta
+2025-11-29,Margarita,2,120,240,Efectivo
+2025-11-29,Rústica Especial,3,180,540,Efectivo
+2025-11-29,Pepperoni,1,140,140,Efectivo
+2025-11-29,Hawaiana,3,150,450,Tarjeta
+2025-11-29,Hawaiana,2,150,300,Tarjeta
+2025-11-29,Café americano,2,35,70,Efectivo
+2025-11-29,Mexicana,2,160,320,Efectivo
+2025-11-29,4 Quesos,4,155,620,Efectivo
+2025-11-29,Margarita,1,120,120,Efectivo
+2025-11-29,Café americano,1,35,35,Efectivo
+2025-11-29,Roles de canela,2,35,70,Efectivo
+2025-11-29,Galletas chispas chocolate,5,25,125,Efectivo
+2025-11-29,Hawaiana,4,150,600,Tarjeta
+2025-11-29,Pan de muerto grande,1,60,60,Tarjeta
+2025-11-29,Hawaiana,3,150,450,Efectivo
+2025-11-30,Champiñones,2,150,300,Tarjeta
+2025-11-30,Vegetariana,3,145,435,Efectivo
+2025-11-30,Hawaiana,2,150,300,Efectivo
+2025-11-30,Rústica Especial,3,180,540,Efectivo
+2025-11-30,Margarita,1,120,120,Efectivo
+2025-11-30,Hawaiana,1,150,150,Tarjeta
+2025-11-30,Pan de muerto grande,4,60,240,Efectivo
+2025-11-30,Agua fresca,1,30,30,Efectivo
+2025-11-30,Rústica Especial,1,180,180,Efectivo
+2025-11-30,Café americano,3,35,105,Efectivo
+2025-11-30,Rústica Especial,4,180,720,Efectivo
+2025-11-30,4 Quesos,4,155,620,Efectivo

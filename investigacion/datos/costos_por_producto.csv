@@ -1,0 +1,24 @@
+Producto,Categoria,Precio_Venta,Costo_Ingredientes,Margen_Bruto,Porcentaje_Margen,Ultima_Actualizacion
+Margarita,Pizza,120,42,78,65.0%,2025-03-15
+Pepperoni,Pizza,140,52,88,62.9%,2025-03-15
+Hawaiana,Pizza,150,48,102,68.0%,2025-03-15
+Mexicana,Pizza,160,55,105,65.6%,2025-03-15
+4 Quesos,Pizza,155,58,97,62.6%,2025-03-15
+Rústica Especial,Pizza,180,65,115,63.9%,2025-03-15
+Vegetariana,Pizza,145,45,100,69.0%,2025-03-15
+BBQ Pollo,Pizza,170,60,110,64.7%,2025-03-15
+Champiñones,Pizza,150,50,100,66.7%,2025-03-15
+De la Casa,Pizza,190,70,120,63.2%,2025-03-15
+Roles de canela,Panadería,35,12,23,65.7%,2025-03-15
+Galletas chispas chocolate,Panadería,25,10,15,60.0%,2025-03-15
+Cuernos,Panadería,30,11,19,63.3%,2025-03-15
+Conchas,Panadería,15,5,10,66.7%,2025-03-15
+Rebanada de pay,Panadería,55,22,33,60.0%,2025-03-15
+Tiramisú porción,Panadería,65,28,37,56.9%,2025-03-15
+Pan de muerto chico,Panadería,45,18,27,60.0%,2025-03-15
+Pan de muerto grande,Panadería,60,25,35,58.3%,2025-03-15
+Refresco,Bebida,25,12,13,52.0%,2025-03-15
+Agua fresca,Bebida,30,8,22,73.3%,2025-03-15
+Café americano,Bebida,35,7,28,80.0%,2025-03-15
+Café capuchino,Bebida,45,12,33,73.3%,2025-03-15
+Limonada,Bebida,30,6,24,80.0%,2025-03-15

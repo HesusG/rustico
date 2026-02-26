@@ -1,0 +1,96 @@
+Fecha_Conteo,Insumo,Cantidad,Unidad,Observaciones
+2025-09-01,Harina de trigo,15.5,kg,
+2025-09-01,Queso mozzarella,21.4,kg,
+2025-09-01,Queso gouda,6.9,kg,Cambiar proveedor?
+2025-09-01,Salsa de tomate,19.4,L,Último paquete
+2025-09-01,Pepperoni,~7.1,kg,Revisar calidad
+2025-09-01,Champiñones,4.0,kg,Cambiar proveedor?
+2025-09-01,Jamón,6.4,kg,
+2025-09-01,Piña,5.7,kg,
+2025-09-01,Chile jalapeño,2.8,kg,
+2025-09-01,Pollo desmenuzado,2.3,kg,Pedir más
+2025-09-01,Aceite de oliva,8.5,L,Pedir la próxima semana
+2025-09-01,Levadura,1.4,kg,
+2025-09-01,Mantequilla,2.7,kg,
+2025-09-01,Huevo,73,piezas,Vence pronto
+2025-09-01,Chocolate,4.6,kg,Pedir la próxima semana
+2025-09-01,Sal,7.2,kg,
+2025-09-01,Orégano,221,g,
+2025-09-15,Harina de trigo,20.6,kg,
+2025-09-15,Queso mozzarella,20.6,kg,
+2025-09-15,Queso gouda,3.5,kg,
+2025-09-15,Salsa de tomate,12.5,L,
+2025-09-15,Pepperoni,3.1,kg,Revisar calidad
+2025-09-15,Champiñones,4.1,kg,
+2025-09-15,Jamón,8.0,kg,Pedir más
+2025-09-15,Piña,4.0 aprox,kg,
+2025-09-15,Chile jalapeño,3.6,kg,Pedir la próxima semana
+2025-09-15,Pollo desmenuzado,6.7,kg,
+2025-09-15,Aceite de oliva,9.5,L,Último paquete
+2025-09-15,Azúcar,10.5,kg,
+2025-09-15,Huevo,64,piezas,Pedir más
+2025-09-15,Chocolate,4.4,kg,Buena calidad
+2025-09-15,Orégano,183,g,Pedir la próxima semana
+2025-10-01,Harina de trigo,15.4,kg,
+2025-10-01,Queso gouda,8.4,kg,Cambiar proveedor?
+2025-10-01,Salsa de tomate,8.5,L,Vence pronto
+2025-10-01,Pepperoni,6.2,kg,
+2025-10-01,Champiñones,2.1,kg,
+2025-10-01,Jamón,5.7,kg,Vence pronto
+2025-10-01,Piña,2.3,kg,
+2025-10-01,Chile jalapeño,1.2,kg,
+2025-10-01,Pollo desmenuzado,3.2,kg,Pedir la próxima semana
+2025-10-01,Levadura,1.0,kg,
+2025-10-01,Azúcar,3.3,kg,Pan de muerto – consumo alto
+2025-10-01,Mantequilla,~3.2,kg,
+2025-10-01,Chocolate,3.0,kg,
+2025-10-01,Sal,7.7,kg,Último paquete
+2025-10-01,Orégano,164,g,
+2025-10-15,Queso mozzarella,20.9,kg,
+2025-10-15,Queso gouda,9.8,kg,Cambiar proveedor?
+2025-10-15,Salsa de tomate,11.7,L,
+2025-10-15,Champiñones,2.1,kg,Revisar calidad
+2025-10-15,Jamón,5.8,kg,Revisar calidad
+2025-10-15,Piña,5.5,kg,
+2025-10-15,Chile jalapeño,3.2,kg,
+2025-10-15,Pollo desmenuzado,4.9 aprox,kg,Buena calidad
+2025-10-15,Aceite de oliva,4.3,L,Pedir más
+2025-10-15,Levadura,2.3,kg,Pedir la próxima semana
+2025-10-15,Azúcar,14.3,kg,Pan de muerto – consumo alto
+2025-10-15,Mantequilla,~4.1,kg,Cambiar proveedor?
+2025-10-15,Huevo,114,piezas,
+2025-10-15,Chocolate,4.8,kg,Último paquete
+2025-10-15,Sal,4.5,kg,
+2025-10-15,Orégano,377,g,Revisar calidad
+2025-11-01,Harina de trigo,25.2,kg,
+2025-11-01,Queso mozzarella,15.4,kg,Pedir más
+2025-11-01,Queso gouda,~3.5,kg,Buena calidad
+2025-11-01,Salsa de tomate,15.5,L,
+2025-11-01,Pepperoni,5.8,kg,
+2025-11-01,Champiñones,1.7,kg,
+2025-11-01,Jamón,2.5,kg,
+2025-11-01,Piña,4.6,kg,Buena calidad
+2025-11-01,Chile jalapeño,2.6,kg,Pedir la próxima semana
+2025-11-01,Pollo desmenuzado,~3.9,kg,Vence pronto
+2025-11-01,Aceite de oliva,6.9,L,
+2025-11-01,Levadura,2.7,kg,
+2025-11-01,Azúcar,14.6,kg,Cambiar proveedor?
+2025-11-01,Mantequilla,3.7,kg,Pan de muerto – consumo alto
+2025-11-01,Huevo,~65,piezas,
+2025-11-01,Sal,~7.5,kg,Pedir la próxima semana
+2025-11-01,Orégano,389,g,
+2025-11-15,Queso mozzarella,10.3,kg,Pedir más
+2025-11-15,Queso gouda,2.1,kg,
+2025-11-15,Salsa de tomate,11.8,L,Buena calidad
+2025-11-15,Pepperoni,~2.2,kg,Buena calidad
+2025-11-15,Champiñones,3.4,kg,Vence pronto
+2025-11-15,Jamón,2.7,kg,
+2025-11-15,Piña,2.5,kg,
+2025-11-15,Pollo desmenuzado,5.8,kg,Vence pronto
+2025-11-15,Aceite de oliva,9.7,L,Último paquete
+2025-11-15,Levadura,2.8,kg,Pedir la próxima semana
+2025-11-15,Azúcar,10.7,kg,
+2025-11-15,Mantequilla,5.7,kg,Revisar calidad
+2025-11-15,Chocolate,2.1,kg,Buena calidad
+2025-11-15,Sal,~6.4,kg,Vence pronto
+2025-11-15,Orégano,210,g,Pedir la próxima semana
