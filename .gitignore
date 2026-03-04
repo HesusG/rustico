@@ -1,3 +1,5 @@
 .env
 investigacion/evidencias/
 __pycache__/
+pipeline/data/
+*.db
