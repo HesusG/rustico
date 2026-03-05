@@ -69,6 +69,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage[utf8]{inputenc}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
@@ -795,122 +796,8 @@ El flujo opera en seis pasos:
   la toma de decisiones.
 \end{enumerate}
 
-\hypertarget{modelo-de-datos}{%
-\subsubsection{7.4.4 Modelo de datos}\label{modelo-de-datos}}
-
-El siguiente diagrama entidad-relación representa las principales
-entidades de datos del sistema y sus relaciones. Se trata de un modelo
-conceptual simplificado cuyo objetivo es ilustrar qué información
-necesita capturar y relacionar el sistema.
-
-\begin{figure}
-\centering
-\includegraphics{diagramas/fig3_modelo_er.png}
-\caption{Modelo entidad-relación del sistema}
-\end{figure}
-
-\emph{Figura 3. Modelo entidad-relación simplificado. Las nueve
-entidades del sistema (Producto, Venta, DetalleVenta, Insumo, Receta,
-Gasto, CorteCaja, Empleado, Nómina) representan las unidades de
-información necesarias para integrar la gestión financiera del negocio.}
-
-El modelo contempla nueve entidades principales:
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.30\columnwidth}\raggedright
-Entidad\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Descripción\strut
-\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright
-Registros estimados\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Producto}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Cada artículo del menú: pizzas, panes, postres, bebidas. Incluye precio
-de venta y costo unitario calculado a partir de la receta\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde30 a 40 productos activos\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Venta}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Cada transacción individual con un cliente. Registra fecha, hora, método
-de pago y el empleado que la registró\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde30 a 60 ventas diarias\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{DetalleVenta}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Líneas individuales de cada venta (qué producto, cuántas unidades, a qué
-precio)\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde50 a 100 líneas diarias\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Insumo}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Cada materia prima: harina, queso mozzarella, pepperoni, tomate,
-levadura, etc.\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde50 a 80 insumos\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Receta (BOM)}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Lista de materiales por producto: qué insumos y en qué cantidad se
-necesitan para una unidad\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde150 a 250 relaciones\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Gasto}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Cada erogación que no sea compra de insumos: renta, gas, luz,
-mantenimiento, publicidad\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde30 a 50 gastos mensuales\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{CorteCaja}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Registro del cierre diario de caja: ventas, efectivo contado, tarjeta,
-diferencia\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-1 por día operativo (\textasciitilde26/mes)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Empleado}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Datos de cada miembro del equipo: Martín, Mariana, Luis Ángel,
-Sofía\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-4 registros activos\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textbf{Nómina}\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-Registro de cada pago: salario base, deducciones, neto pagado, fecha y
-método\strut
-\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright
-\textasciitilde8 registros mensuales\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-La pieza clave del modelo es la entidad \textbf{Receta}, que vincula
-cada producto del menú con los insumos que lo componen. Esta relación es
-la que permite que una venta registrada en el POS genere automáticamente
-el descuento de inventario y el cálculo de costo de materia prima,
-resolviendo la desconexión entre ventas y costos que el diagnóstico
-identificó como una de las brechas más críticas.
-
 \hypertarget{implementaciuxf3n-por-fases-y-kpis}{%
-\subsubsection{7.4.5 Implementación por fases y
+\subsubsection{7.4.4 Implementación por fases y
 KPIs}\label{implementaciuxf3n-por-fases-y-kpis}}
 
 Dada la naturaleza del negocio ---microempresa con 4 empleados, sin
@@ -998,7 +885,7 @@ Meta\strut
 \begin{minipage}[t]{0.17\columnwidth}\raggedright
 \textbf{Margen bruto (\%)}\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
-(Ventas − Costo MP) ÷ Ventas × 100\strut
+(Ventas - Costo MP) ÷ Ventas × 100\strut
 \end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\centering
 Diaria / Semanal\strut
 \end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\centering
@@ -1018,7 +905,7 @@ Diaria\strut
 \begin{minipage}[t]{0.17\columnwidth}\raggedright
 \textbf{Diferencia en corte de caja (\%)}\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
-(Efectivo contado − Efectivo esperado) ÷ Efectivo esperado × 100\strut
+(Efectivo contado - Efectivo esperado) ÷ Efectivo esperado × 100\strut
 \end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\centering
 Diaria\strut
 \end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\centering
@@ -1046,7 +933,7 @@ Mensual\strut
 \end{longtable}
 
 \hypertarget{impacto-esperado-en-el-corto-y-largo-plazo}{%
-\subsubsection{7.4.6 Impacto esperado en el corto y largo
+\subsubsection{7.4.5 Impacto esperado en el corto y largo
 plazo}\label{impacto-esperado-en-el-corto-y-largo-plazo}}
 
 \textbf{Impacto en el corto plazo (primer año).}

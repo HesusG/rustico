@@ -190,31 +190,7 @@ El flujo opera en seis pasos:
 5. **Conciliación.** Al cierre del turno, Sofía o Martín realizan el corte de caja. El sistema compara las ventas registradas con el efectivo contado y los vouchers de terminal, identificando discrepancias.
 6. **Consolidación.** Todos los datos fluyen al módulo de Reportes, donde se calculan los KPIs y se generan los reportes periódicos para la toma de decisiones.
 
-### 7.4.4 Modelo de datos
-
-El siguiente diagrama entidad-relación representa las principales entidades de datos del sistema y sus relaciones. Se trata de un modelo conceptual simplificado cuyo objetivo es ilustrar qué información necesita capturar y relacionar el sistema.
-
-![Modelo entidad-relación del sistema](diagramas/fig3_modelo_er.png)
-
-*Figura 3. Modelo entidad-relación simplificado. Las nueve entidades del sistema (Producto, Venta, DetalleVenta, Insumo, Receta, Gasto, CorteCaja, Empleado, Nómina) representan las unidades de información necesarias para integrar la gestión financiera del negocio.*
-
-El modelo contempla nueve entidades principales:
-
-| Entidad | Descripción | Registros estimados |
-|---|---|---|
-| **Producto** | Cada artículo del menú: pizzas, panes, postres, bebidas. Incluye precio de venta y costo unitario calculado a partir de la receta | ~30 a 40 productos activos |
-| **Venta** | Cada transacción individual con un cliente. Registra fecha, hora, método de pago y el empleado que la registró | ~30 a 60 ventas diarias |
-| **DetalleVenta** | Líneas individuales de cada venta (qué producto, cuántas unidades, a qué precio) | ~50 a 100 líneas diarias |
-| **Insumo** | Cada materia prima: harina, queso mozzarella, pepperoni, tomate, levadura, etc. | ~50 a 80 insumos |
-| **Receta (BOM)** | Lista de materiales por producto: qué insumos y en qué cantidad se necesitan para una unidad | ~150 a 250 relaciones |
-| **Gasto** | Cada erogación que no sea compra de insumos: renta, gas, luz, mantenimiento, publicidad | ~30 a 50 gastos mensuales |
-| **CorteCaja** | Registro del cierre diario de caja: ventas, efectivo contado, tarjeta, diferencia | 1 por día operativo (~26/mes) |
-| **Empleado** | Datos de cada miembro del equipo: Martín, Mariana, Luis Ángel, Sofía | 4 registros activos |
-| **Nómina** | Registro de cada pago: salario base, deducciones, neto pagado, fecha y método | ~8 registros mensuales |
-
-La pieza clave del modelo es la entidad **Receta**, que vincula cada producto del menú con los insumos que lo componen. Esta relación es la que permite que una venta registrada en el POS genere automáticamente el descuento de inventario y el cálculo de costo de materia prima, resolviendo la desconexión entre ventas y costos que el diagnóstico identificó como una de las brechas más críticas.
-
-### 7.4.5 Implementación por fases y KPIs
+### 7.4.4 Implementación por fases y KPIs
 
 Dada la naturaleza del negocio —microempresa con 4 empleados, sin personal de TI, sin experiencia previa en sistemas de gestión—, se propone una implementación gradual en cuatro fases que minimice la disrupción operativa y permita la adopción progresiva.
 
@@ -231,16 +207,16 @@ Los indicadores clave de desempeño (KPIs) propuestos están diseñados para ser
 
 | KPI | Fórmula | Frecuencia | Meta |
 |---|---|:---:|:---:|
-| **Margen bruto (%)** | (Ventas − Costo MP) ÷ Ventas × 100 | Diaria / Semanal | ≥ 65% |
+| **Margen bruto (%)** | (Ventas - Costo MP) ÷ Ventas × 100 | Diaria / Semanal | ≥ 65% |
 | **Ticket promedio ($)** | Ventas totales ÷ Número de transacciones | Diaria | $250 – $400 MXN |
 | **Costo de materia prima (%)** | Costo MP consumida ÷ Ventas totales × 100 | Semanal | ≤ 30 – 35% |
 | **Rotación de inventario** | Costo MP consumida ÷ Inventario promedio | Mensual | 8 – 12 veces/mes |
-| **Punto de equilibrio ($)** | Costos fijos ÷ (1 − Costo variable / Precio venta) | Mensual | ≤ $60,000 MXN |
-| **Diferencia en corte de caja (%)** | (Efectivo contado − Efectivo esperado) ÷ Efectivo esperado × 100 | Diaria | ≤ ±1% |
+| **Punto de equilibrio ($)** | Costos fijos ÷ (1 - Costo variable / Precio venta) | Mensual | ≤ $60,000 MXN |
+| **Diferencia en corte de caja (%)** | (Efectivo contado - Efectivo esperado) ÷ Efectivo esperado × 100 | Diaria | ≤ ±1% |
 | **Productividad por empleado** | Ventas totales ÷ Número de empleados | Mensual | ≥ $20,000 MXN/empleado |
 | **Días con registro completo (%)** | Días con registro ÷ Días operativos × 100 | Mensual | 100% |
 
-### 7.4.6 Impacto esperado en el corto y largo plazo
+### 7.4.5 Impacto esperado en el corto y largo plazo
 
 **Impacto en el corto plazo (primer año).**
 
