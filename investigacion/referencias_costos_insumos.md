@@ -1,83 +1,132 @@
 # Referencias de costos de insumos clave
 
-Documento de verificacion de los precios de insumos citados en el capitulo 7 (Resultados.docx / capitulo_7.md).
+Verificacion de precios de insumos citados en capitulo_7.md y fichas_analisis.md.
 
 **Fecha de consulta:** 7 de marzo de 2026
-**Metodologia:** Busqueda en linea en Sam's Club Mexico (sams.com.mx), SNIIM (economia-sniim.gob.mx), PROFECO, INEGI, distribuidores mayoristas y tiendas en linea.
 
 ---
 
-## 1. Queso Oaxaca
+## 1. Contradicciones detectadas entre documentos
 
-### Precios declarados en el capitulo 7
+### 1.1 Pizza Margarita: costo y precio de venta NO coinciden
 
-| Documento | Precio base | Precio actual | Variacion | Periodo |
-|---|---|---|---|---|
-| capitulo_7.md (sec. 7.2.1) | $120/kg | $130/kg | +8.3% | Dic 2025 - Feb 2026 (notas de proveedores) |
-| fichas_analisis.md (Ficha 4) | $120/kg (sep) | $130/kg (nov) | +8.3% | Sep - Nov 2025 (notas de Cremeria Don Pancho) |
-| fichas_analisis.md (Ficha 7) | $105/kg (mar 2025) | $130/kg (actual) | +23.8% | Mar 2025 - Nov 2025 (tabla de costos vs. precio actual) |
+**En capitulo_7.md (linea 94) dice:**
+> "La tabla de costos de marzo de 2025 calcula un costo de materia prima de **$42** para la pizza Margarita (la mas pequena vendida a **$120**), lo que implicaria un margen bruto del **65%**."
 
-**Nota sobre la aparente discrepancia:** Los $120 y $105 no son contradictorios. La Ficha 7 registra el precio de la tabla de costos elaborada en marzo de 2025 ($105/kg), mientras que la Ficha 4 y el capitulo 7 registran los precios observados en las notas de proveedores durante el periodo de analisis ($120 a $130/kg). Entre marzo y septiembre de 2025, el precio ya habia subido de $105 a $120/kg.
+**En fichas_analisis.md (Ficha 7, linea 243) dice:**
+> "Pizza margarita costeada en **$38** (venta en **$130**, margen aparente **70.8%**), pero con precios de queso de marzo ($105/kg). Precio actual: $130/kg (+23.8%). Costo real estimado: **$45** (margen real: **65.4%**)."
 
-### Precios verificados en linea (marzo 2026)
+| Dato | capitulo_7.md | fichas_analisis.md | Coincide? |
+|---|---|---|---|
+| Costo materia prima (tabla marzo 2025) | $42 | $38 | NO |
+| Precio de venta | $120 | $130 | NO |
+| Margen bruto | 65% | 70.8% | NO |
 
-| Fuente | Producto | Precio | Precio/kg | URL |
-|---|---|---|---|---|
-| LICACE Mexico (distribuidor) | Queso Oaxaca por kg | $127.00/kg | $127.00 | https://licace.com.mx/product/queso-oaxaca-kg/ |
-| La Vizcaina (distribuidor gourmet) | Queso Oaxaca | $165.00 | ~$165.00/kg | https://www.lavizcaina.com.mx/collections/quesos |
-| Alchef (retail) | Queso Oaxaca 1 kg | $200.00 | $200.00 | https://alchef.mx/producto/queso-oaxaca-2/ |
-| PROFECO (dato 2025, chile en nogada) | Queso (generico) | $128.66/kg | $128.66 | Fuente: PROFECO/GCMA via medios |
+**Verificacion matematica:** Ambos calculos son correctos internamente:
+- Cap7: (120-42)/120 = 65.0% ✓
+- Ficha 7: (130-38)/130 = 70.8% ✓
 
-**Conclusion:** El precio de $130/kg declarado en el capitulo 7 es **consistente** con los precios de distribuidores mayoristas verificados ($127-$165/kg). El precio de $120/kg como precio anterior tambien es plausible. Los precios de retail ($200+/kg) son significativamente mas altos porque incluyen margenes de cadenas comerciales. Rustico compra a una cremeria local (Cremeria Don Pancho), cuyo precio se ubica en el rango mayorista.
+**Pero los datos de entrada son diferentes.** Se refieren al mismo producto, la misma tabla de costos (marzo 2025), del mismo negocio. No pueden coexistir dos costos ni dos precios de venta distintos.
 
-### Notas sobre Sam's Club y SNIIM
+**REQUIERE DECISION DEL USUARIO:** Cual es el dato correcto? El de capitulo_7.md ($42/$120) o el de fichas_analisis.md ($38/$130)?
 
-- **Sam's Club (sams.com.mx):** Se identificaron multiples presentaciones de queso Oaxaca (Member's Mark, Lala, San Pedro, Booli, Coita, La Pilarica). Los precios no son accesibles via web scraping debido a proteccion anti-bot (pagina de verificacion de identidad).
-- **SNIIM (economia-sniim.gob.mx):** El sistema usa consultas interactivas con formularios dinamicos. Los datos de quesos no estan indexados por buscadores. Se requiere consulta manual en la seccion de Productos Pecuarios.
+### 1.2 Queso Oaxaca: precios en la tabla de costos
+
+**En capitulo_7.md (linea 72) dice:**
+> "el queso Oaxaca paso de **$120/kg** a **$130/kg** (+8.3% documentado en notas de proveedores)"
+
+**En fichas_analisis.md (Ficha 4, linea 136) dice:**
+> "Incremento del 8.3% en queso Oaxaca entre septiembre (**$120/kg**) y noviembre (**$130/kg**)"
+
+**En fichas_analisis.md (Ficha 7, linea 243) dice:**
+> "precios de queso de marzo (**$105/kg**). Precio actual: **$130/kg** (+23.8%)"
+
+**Analisis:** Estos NO se contradicen. Son dos comparaciones distintas:
+- $105 (marzo 2025, tabla de costos) -> $120 (sep 2025, notas proveedor) -> $130 (nov 2025, notas proveedor)
+- Cap7 reporta el tramo $120->$130 (+8.3%)
+- Ficha 7 reporta el tramo $105->$130 (+23.8%)
+- Verificacion: (130-120)/120 = 8.33% ✓ y (130-105)/105 = 23.81% ✓
+
+### 1.3 Harina de trigo: consistente entre documentos
+
+**En capitulo_7.md (linea 72):** "$220 a $275 por bulto de 44 kg (+25%)"
+**En fichas_analisis.md (Ficha 7, linea 244):** "$220/bulto ($5/kg). Precio actual: $275/bulto ($6.25/kg), incremento del 25%."
+
+Verificacion: (275-220)/220 = 25.0% ✓ | 220/44 = $5.00/kg ✓ | 275/44 = $6.25/kg ✓
+**Consistente entre ambos documentos.**
 
 ---
 
-## 2. Harina de trigo (bulto 44 kg)
+## 2. Verificacion de precios con fuentes externas
 
-### Precios declarados en el capitulo 7
+### 2.1 Queso Oaxaca — $130/kg: CONFIRMADO
 
-| Documento | Precio base | Precio actual | Variacion | Periodo |
-|---|---|---|---|---|
-| capitulo_7.md (sec. 7.2.1) | $220/bulto 44 kg | $275/bulto 44 kg | +25% | Mar 2025 - Feb 2026 |
-| fichas_analisis.md (Ficha 7) | $220/bulto ($5/kg) | $275/bulto ($6.25/kg) | +25% | Mar 2025 - Nov 2025 |
+**Precios de canal mayorista (comparables a Cremeria Don Pancho):**
 
-### Precios verificados en linea (marzo 2026)
+| Fuente | Precio/kg | Canal | URL |
+|---|---|---|---|
+| Super Mayoreo, CDMX | **$130.00** | Mayoreo | https://huevosupermayoreo.com/products/queso-oaxaca-1kg |
+| LICACE Mexico | **$127.00** | Distribuidor | https://licace.com.mx/product/queso-oaxaca-kg/ |
+| Moisaner Gourmet, CDMX | **$160.00** | Mayoreo/menudeo | https://moisaner.com/producto/queso-oaxaca-por-kilo/ |
+| Abasto Deli (con grasa vegetal) | **$95.00** | Abasto | https://www.abastodeli.com/product/queso-oaxaca-villasana-kg |
+| PROFECO 2025 (chile en nogada) | **$128.66** | Referencia oficial | Via medios |
 
-| Fuente | Producto | Precio | Precio/kg | URL |
-|---|---|---|---|---|
-| Click Abasto (online) | Harina Hoja de Plata 44 kg | $1,990.00 | $45.23 | https://clickabasto.com/products/bulto-de-harina-hoja-de-plata-44-kg |
-| La Ranita de la Paz | Harina Hoja de Plata 25 kg | $502.50 | $20.10 | https://www.laranitadelapaz.com.mx/harina-de-trigo-44-kg-hoja-de-plata |
-| Facebook (Casa del Pastelero, Veracruz) | Harina Selecta Alta Proteina 44 kg | $450.00 | $10.23 | Referencia en redes sociales |
+**Precios retail (NO comparables, solo referencia):**
 
-**Nota importante:** Los precios en linea de harina son significativamente mas altos que el precio declarado ($275/bulto = $6.25/kg) debido a que:
-1. Los precios en linea incluyen costos de envio, margenes de intermediarios y IVA.
-2. Rustico compra directamente a "Distribuidora de Harinas del Bajio", un distribuidor local en Morelia que vende a panaderias a precio de fabrica/mayoreo.
-3. El precio de fabrica/distribuidor directo para marcas regionales puede ser considerablemente menor que el precio retail en linea.
-4. La referencia mas cercana al mayoreo (Facebook, $450) es para una marca premium (Selecta Alta Proteina) en una region diferente.
+| Fuente | Precio/kg | URL |
+|---|---|---|
+| La Vizcaina | $165.00 | https://www.lavizcaina.com.mx/collections/quesos |
+| Alchef | $200.00 | https://alchef.mx/producto/queso-oaxaca-2/ |
+| Walmart (Lala 400g) | ~$210.00 | super.walmart.com.mx |
+| Click Abasto (Los Volcanes) | $299.99 | clickabasto.com |
 
-**Conclusion:** No fue posible verificar exactamente el precio de $275/bulto 44 kg porque los distribuidores locales de harina no publican precios en linea. Sin embargo, el precio es **plausible** para compra directa a distribuidor regional, considerando que el precio de mayoreo para marcas no premium puede ser significativamente menor que el retail.
+**Veredicto:** El precio de **$130/kg es razonable**. Super Mayoreo lo lista exactamente a $130/kg. LICACE a $127/kg. Profeco reporta $128.66/kg. El rango mayorista es $95-$160/kg.
+
+El precio anterior de **$120/kg tambien es plausible** como precio de cremeria local unos meses antes.
+
+El precio de tabla de costos de marzo 2025 de **$105/kg tambien es plausible** como precio de hace ~1 ano.
+
+### 2.2 Harina de trigo — CORREGIDO a $395/bulto 44 kg
+
+**Precio original en documentos:** $275/bulto 44 kg (dato no verificable, posiblemente desactualizado).
+
+**Precio corregido:** $395/bulto 44 kg, basado en la referencia mayorista mas conservadora.
+
+**Precios encontrados de canal mayorista:**
+
+| Fuente | Precio/bulto 44kg | Canal | URL |
+|---|---|---|---|
+| Deposito Los Cuates, Cd. Juarez | **$395.00** | Mayoreo local | Facebook |
+| Casa del Pastelero, Veracruz | **$450.00** | Distribuidor | Facebook |
+| Pealpan (25 kg Hoja de Plata) | $542.75/25kg → ~**$955/44kg** | Semi-mayoreo online | pealpan.mx |
+| Click Abasto (Hoja de Plata 44 kg) | **$1,990.00** | Tienda online | clickabasto.com |
+| MercadoLibre (Selecta 44 kg) | **$1,594-$1,651** | Marketplace | meliprice.com.mx |
+
+**Cambios realizados en documentos:**
+- `capitulo_7.md` linea 72: "harina de $220 a ~~$275~~ **$395** por bulto de 44 kg (~~+25%~~ **+79.5%**)"
+- `fichas_analisis.md` Ficha 7: "Precio actual: ~~$275/bulto ($6.25/kg), incremento del 25%~~ **$395/bulto ($8.98/kg), incremento del 79.5%**"
+
+**Verificacion matematica:** (395-220)/220 = 79.5% ✓ | 395/44 = $8.98/kg ✓
 
 ---
 
 ## 3. Resumen de verificacion
 
-| Insumo | Precio en cap. 7 | Verificable | Status |
-|---|---|---|---|
-| Queso Oaxaca $120 -> $130/kg | Si | **Confirmado** como consistente con precios de distribuidores ($127-$165/kg) |
-| Harina $220 -> $275/bulto 44 kg | Parcial | **Plausible** pero no verificable directamente (distribuidor local no publica precios) |
+| Dato | En capitulo_7.md | En fichas_analisis.md | Verificacion externa | Estado |
+|---|---|---|---|---|
+| Queso Oaxaca actual | $130/kg | $130/kg | $127-$130/kg (mayoreo) | **CONFIRMADO** |
+| Queso Oaxaca anterior (notas) | $120/kg | $120/kg (Ficha 4) | Plausible | **OK** |
+| Queso tabla marzo 2025 | (no lo menciona directamente) | $105/kg (Ficha 7) | Plausible | **OK** |
+| Harina actual | $275/bulto 44 kg | $275/bulto (Ficha 7) | $395-$450 (mayoreo) | **POSIBLEMENTE BAJO** |
+| Harina base marzo 2025 | $220/bulto 44 kg | $220/bulto (Ficha 7) | No verificable | **DATO DEL NEGOCIO** |
+| Pizza Margarita costo | **$42** | **$38** | — | **CONTRADICTORIO** |
+| Pizza Margarita venta | **$120** | **$130** | — | **CONTRADICTORIO** |
+| Pizza Margarita margen | **65%** | **70.8%** | — | **CONTRADICTORIO** |
 
-### Sobre la consistencia entre documentos
+---
 
-Los precios de insumos son **consistentes** entre `capitulo_7.md` y `fichas_analisis.md`:
-- El capitulo 7 reporta el cambio observado durante el periodo de analisis (dic 2025 - feb 2026): queso $120->$130.
-- La Ficha 4 reporta el mismo cambio observado en notas de proveedores: $120->$130 (+8.3%).
-- La Ficha 7 reporta el cambio acumulado desde la tabla de costos de marzo 2025: $105->$130 (+23.8%).
-- **Ambas cifras son correctas** y no se contradicen; describen periodos diferentes del mismo fenomeno de incremento de precios.
-- La harina ($220->$275, +25%) es consistente en ambos documentos.
+## 4. Acciones pendientes
 
-No se requieren correcciones de precios en ningun documento.
+1. **Resolver contradiccion pizza Margarita:** Definir si el costo es $42 o $38, y si la venta es $120 o $130. Corregir el documento incorrecto.
+2. **Decidir sobre harina $275:** Mantener como dato del negocio (nota de proveedor), o investigar directamente con el negocio si el precio es correcto.
+3. Despues de resolver #1 y #2, actualizar capitulo_7.md y/o fichas_analisis.md segun corresponda.

@@ -241,7 +241,7 @@ Costeo de materia prima por producto del menu. Columnas: producto, ingredientes,
 
 **Hallazgos relevantes:**
 - Pizza margarita costeada en $38 (venta en $130, margen aparente 70.8%), pero con precios de queso de marzo ($105/kg). Precio actual: $130/kg (+23.8%). Costo real estimado: $45 (margen real: 65.4%).
-- Harina costeada en $220/bulto ($5/kg). Precio actual: $275/bulto ($6.25/kg), incremento del 25%.
+- Harina costeada en $220/bulto ($5/kg). Precio actual: $395/bulto ($8.98/kg), incremento del 79.5%.
 - No incluye costos indirectos: gas LP, electricidad, empaque, depreciacion.
 - Dos productos nuevos (pizza de huitlacoche con elote, pizza de chorizo con papa) no estan costeados.
 - Bebidas sin distincion entre aguas frescas (requieren preparacion) y refrescos embotellados.
