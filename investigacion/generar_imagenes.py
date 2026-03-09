@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Genera las 10 imagenes de evidencia para Rustico Pizza y Pan
-usando Gemini 2.0 Flash con generacion nativa de imagenes.
+usando Gemini 3 Pro Image (gemini-3-pro-image-preview) a 4K
+con prompts optimizados para texto manuscrito realista.
 
 Uso:
     export GEMINI_API_KEY="tu-api-key"
@@ -13,9 +14,9 @@ Uso:
 import os
 import sys
 import time
-import struct
-import zlib
 from pathlib import Path
+from io import BytesIO
+
 from google import genai
 from google.genai import types
 
@@ -27,54 +28,72 @@ OUTPUT_DIR = BASE_DIR / "evidencias"
 COMPRESSED_DIR = BASE_DIR / "evidencias_compressed"
 MODEL = "gemini-3-pro-image-preview"
 MAX_RETRIES = 3
-RETRY_DELAY = 10  # segundos entre reintentos
+RETRY_DELAY = 15  # segundos entre reintentos (mas conservador para 4K)
 
 # ---------------------------------------------------------------------------
-# Prefijo comun para todos los prompts
+# Prefijo comun — semantic negative prompts + imperfecciones agresivas
 # ---------------------------------------------------------------------------
-PREFIJO = """Genera una fotografia hiperrealista, estilo documental, tomada con un smartphone moderno \
-(iPhone 15 o Samsung Galaxy S24) con iluminacion natural. La imagen es una evidencia \
-fotografica para una investigacion academica sobre control interno en una pizzeria artesanal \
-en Morelia, Michoacan, Mexico. Octubre 2025.
+PREFIJO = """Generate a hyperrealistic documentary-style photograph taken with a modern smartphone \
+(iPhone 15 Pro) with natural lighting. This is photographic evidence for an academic \
+investigation about internal controls in a small artisanal pizzeria called "Rustico Pizza y Pan" \
+in Morelia, Michoacan, Mexico. October 2025.
 
-REGLAS CRITICAS PARA EL TEXTO:
-1. Todo texto visible DEBE estar en espanol mexicano. Nunca mezclar con ingles.
-2. TEXTO MANUSCRITO — IMPERFECCION REALISTA (MUY IMPORTANTE):
-   El texto escrito a mano NO debe verse perfecto ni generado por computadora.
-   Debe simular la letra de una persona real escribiendo rapido en un negocio:
-   - Variaciones de tamano entre letras (algunas mas grandes, otras mas chicas)
-   - Inclinacion inconsistente (no todas las letras al mismo angulo)
-   - Presion variable de la pluma (trazos mas gruesos y mas delgados)
-   - Espaciado irregular entre palabras y letras
-   - Algunas letras ligeramente conectadas, otras separadas
-   - Los renglones NO deben ser perfectamente rectos (ligera ondulacion natural)
-   - Las "a" a veces abiertas, a veces cerradas; las "e" a veces como un loop
-   - Los numeros claros pero no tipograficos (el "4" abierto o cerrado, el "7" con \
-o sin raya, el "1" simple o con patines, variando naturalmente)
-   - Referencia: letra de alguien que no tiene mala letra pero escribe rapido, \
-como un empleado llenando una nota entre clientes
-   - NUNCA letra de caligrafia, NUNCA letra de fuente tipografica, NUNCA letra \
-infantil o temblorosa. Es letra adulta informal de trabajo.
-3. El texto impreso debe usar tipografias comunes mexicanas (Arial, Times, Courier).
-4. Los numeros y signos de pesos ($) deben ser legibles aunque imperfectos.
-5. La ortografia debe ser correcta en espanol (acentos incluidos donde aplique).
-6. Los nombres de productos alimenticios deben ser los terminos usados en Mexico: \
-"harina de trigo" (no "flour"), "queso Oaxaca" (no "Oaxaca cheese"), \
-"bulto" (no "sack"), "carton" (no "carton de huevo" no "box").
+CRITICAL RULES FOR HANDWRITTEN TEXT:
+All visible text MUST be in Mexican Spanish. Never mix with English.
+
+The handwriting must look AUTHENTICALLY HUMAN — like a real worker wrote it quickly between customers:
+- Variable slant: some letters lean right, others are more upright, inconsistently
+- Inconsistent letter SIZE: some letters in the same word are bigger than others
+- Variable PEN PRESSURE: strokes get thicker and thinner naturally, ink pools slightly at curves
+- Irregular SPACING between words and between letters within words
+- BASELINE DRIFT: lines of text gently rise or fall, never perfectly straight on the page
+- LETTERFORM VARIATION: the same letter (a, e, r, s) looks slightly different each time it appears
+- Ink characteristics: slight feathering/bleed into paper fibres, occasional ink blob at stroke starts
+- One or two NATURAL CORRECTIONS: a crossed-out word rewritten, or a letter written over another
+- NOT calligraphy, NOT a computer font, NOT a child's writing, NOT trembling elderly writing
+- Think: a 30-year-old Mexican employee writing quickly with a cheap BIC pen on real paper
+
+SEMANTIC NEGATIVE CONSTRAINTS (describe what to AVOID by stating what IS desired):
+- The handwriting looks naturally inconsistent and slightly messy, like an actual person wrote it quickly
+- Edges are slightly soft like a phone photo; ink has tiny feathering into paper fibres
+- Paper has natural texture, micro-wrinkles, and subtle grain — not a flat digital surface
+- The photo has slight lens softness at edges, natural smartphone depth of field
+- Lighting creates soft shadows showing paper texture and pen indentations
+
+Avoid: typed fonts, calligraphy perfection, vector-clean strokes, perfectly uniform spacing, \
+perfectly straight baselines, perfectly consistent letter shapes, printed textbook layout, \
+over-sharpened edges, synthetic look, AI-perfect symmetry. No watermarks or UI overlays.
 
 """
+
+# ---------------------------------------------------------------------------
+# Instruccion de refinamiento para segunda pasada (chat turn 2)
+# ---------------------------------------------------------------------------
+REFINE_INSTRUCTION = """Using the image you just generated, make the following changes while keeping \
+paper texture, lighting, shadows, composition, and all other elements IDENTICAL:
+
+Make the handwriting MORE humanly imperfect:
+1. INCREASE baseline drift — lines should gently wave, not stay straight
+2. VARY letter sizes more — some letters noticeably bigger or smaller than neighbors
+3. Make pen PRESSURE more variable — thicker strokes at beginning of words, thinner at ends
+4. Add slight INK FEATHERING — tiny bleeding into paper fibres, especially at curves
+5. Make the same letter look DIFFERENT each time (e.g., each 'a' slightly unique)
+6. Add ONE ink smudge or fingerprint somewhere subtle
+7. Make spacing between words IRREGULAR — some words closer, some further apart
+
+Keep all text content EXACTLY the same. Keep it in Spanish. Keep it READABLE but imperfect.
+The goal is: if someone saw this photo, they would believe a real person wrote this by hand."""
 
 # ---------------------------------------------------------------------------
 # Prompts individuales
 # ---------------------------------------------------------------------------
 PROMPTS = {
-    "01": """Fotografia cenital de una libreta de pasta dura abierta sobre una mesa de madera rustica \
-oscura con veta visible. La libreta tiene hojas de raya, amarillentas por el uso. Una pluma \
-BIC azul con tapa esta apoyada sobre la pagina derecha. En la pagina derecha hay una mancha \
-circular de cafe (marca de taza).
+    "01": """Top-down smartphone photo of a hardcover notebook open on a dark rustic wooden table with \
+visible wood grain. The notebook has cream-colored lined pages, yellowed from use. A blue BIC pen \
+with cap rests on the right page. On the right page there is a circular coffee ring stain.
 
-En la pagina izquierda, texto manuscrito con pluma azul, letra cursiva informal pero legible, \
-registrando gastos del negocio. El formato es: fecha — concepto — monto. Cada linea en un renglon:
+On the left page, handwritten text in blue ballpoint ink, informal cursive but legible, recording \
+business expenses. Format: date — item — amount. Each line on a ruled line:
 
 12/10  Gas LP — $380
 14/10  Harina (2 bultos) — $790
@@ -82,30 +101,26 @@ registrando gastos del negocio. El formato es: fecha — concepto — monto. Cad
 17/10  Servilletas y desechables — $145
 19/10  Jitomate caja — $230
 22/10  Aceite de oliva — $310
-24/10  Huevo carton — $95  [esta linea tachada con una raya horizontal]
+24/10  Huevo carton — $95  [this line crossed out with a single horizontal strike]
 24/10  Huevo carton — $110
-26/10  Verdura variada — $150  [esta linea tachada con una raya horizontal]
+26/10  Verdura variada — $150  [this line crossed out with a single horizontal strike]
 26/10  Verdura surtida — $165
 
-Las lineas tachadas deben verse como correcciones naturales (una sola raya, se lee el texto debajo). \
-La letra debe tener personalidad: las "g" con cola larga, los numeros claros.
+The crossed-out lines show natural corrections (single strike, original text still readable beneath).
+The handwriting has personality: "g" with long descenders, numbers clear but not identical.
+Ink intensity varies — darker at start of each line, lighter toward the end as the pen moves faster.
+The "$" signs are each slightly different from each other.
+Some lines drift slightly above or below the printed ruling.""",
 
-IMPERFECCIONES DE ESCRITURA A MANO (obligatorias):
-- Algunas letras mas grandes que otras en la misma palabra
-- El renglon sube o baja ligeramente respecto a la linea de la libreta
-- La tinta varia en intensidad (mas oscura al inicio de cada linea, mas clara al final)
-- Un par de letras con trazos incompletos o retocados
-- Los signos "$" no todos identicos entre si""",
+    "02": """Smartphone photo at 30-degree angle of a sheet of graph paper (letter size) on a stainless \
+steel counter. The paper is slightly crumpled with one corner bent. A basic black Casio calculator \
+is partially visible in the upper right corner.
 
-    "02": """Fotografia en angulo de 30 grados de una hoja de papel cuadriculado (tamano carta) sobre un \
-mostrador de acero inoxidable. La hoja esta ligeramente arrugada y doblada en una esquina. \
-Una calculadora Casio negra basica esta parcialmente visible en la esquina superior derecha.
-
-Texto manuscrito con pluma azul y roja. En la parte superior:
+Handwritten text in blue and red ballpoint pen. At the top:
 
 "Corte de Caja          Martes 14/Oct/2025"
 
-Debajo, una tabla dibujada a mano con regla (lineas rectas pero no perfectas):
+Below, a hand-drawn table (lines drawn with ruler but not perfectly aligned):
 
 | Concepto          | Entrada  | Salida | Saldo   |
 | Fondo inicial     |    —     |   —    | $2,000  |
@@ -115,40 +130,35 @@ Debajo, una tabla dibujada a mano con regla (lineas rectas pero no perfectas):
 | Ventas Rappi      | $1,200   |   —    |   —     |
 | TOTAL             | $8,050   |  $830  | $7,220  |
 
-La fila TOTAL esta escrita en rojo. El saldo final "$7,220" esta encerrado en un circulo \
-rojo con un signo "?" al lado. En el margen derecho, operaciones aritmeticas a mano: \
-$2,000 + $4,850 - $350 + $480 = $7,220 (con el + $480 que deberia ser - $480, mostrando \
-el error de calculo).
+The TOTAL row is written in red ink, slightly larger and less careful than the blue text.
+"$7,220" is circled in red (an imperfect oval, not a circle) with a "?" next to it.
+In the right margin, quick arithmetic: $2,000 + $4,850 - $350 + $480 = $7,220 \
+(note: +$480 should be -$480, showing the calculation error).
+The margin arithmetic is smaller and more cramped, written quickly as a side note.
+Table lines are slightly uneven where the ruler slipped.""",
 
-IMPERFECCIONES DE ESCRITURA A MANO (obligatorias):
-- Las lineas de la tabla dibujadas con regla pero no perfectamente alineadas
-- La letra en rojo ligeramente mas grande y descuidada que la azul
-- Las comas de los miles no siempre en la misma posicion vertical
-- El circulo rojo alrededor del $7,220 no es un circulo perfecto, es ovalado e irregular
-- Las operaciones del margen derecho mas pequenas y apretadas, como anotacion rapida""",
+    "03": """Top-down smartphone photo of three paper delivery receipts (half-letter size) on a stainless \
+steel kitchen surface. The receipts are slightly crumpled with bent edges; one has a translucent \
+grease stain. They are placed side by side, slightly overlapping.
 
-    "03": """Fotografia cenital de tres notas de remision de papel (media carta) sobre una superficie \
-de acero inoxidable de cocina. Las notas estan ligeramente arrugadas, con bordes doblados, \
-una tiene una mancha de grasa translucida. Estan colocadas lado a lado, ligeramente superpuestas.
-
-NOTA IZQUIERDA — Cremeria Don Pancho:
-Encabezado impreso: "Cremeria Don Pancho"
-Subtitulo: "Morelia, Mich. Tel: (443) 315-0779"
-Texto: "nota de remision"
-Tabla manuscrita con pluma azul:
+LEFT RECEIPT — Cremeria Don Pancho:
+Printed header: "Cremeria Don Pancho"
+Subtitle: "Morelia, Mich. Tel: (443) 315-0779"
+Text: "nota de remision"
+Handwritten table in blue pen (TIGHT CURSIVE, fast, barely legible):
 | Descripcion        | Precio   |
 | Queso Oaxaca 1kg   | $1,480   |
 | Crema              |   $140   |
 | Queso Chihuahua    | $2,140   |
 TOTAL: $1,480 MXN
-Sello morado: "PAGADO" en rectangulo
-Linea: "Proveedor: ___________"
+Purple rubber stamp: "PAGADO" in rectangle
+Line: "Proveedor: ___________"
 
-NOTA CENTRAL — Abarrotes El Sol:
-Encabezado impreso: "Abarrotes El Sol"
-Subtitulo: "Morelia, Mich."
-Texto: "nota de remision"
-Tabla manuscrita:
+CENTER RECEIPT — Abarrotes El Sol:
+Printed header: "Abarrotes El Sol"
+Subtitle: "Morelia, Mich."
+Text: "nota de remision"
+Handwritten table (LARGE BLOCK LETTERS, clear but irregular):
 | Descripcion  | Precio |
 | Aceite       |  $620  |
 | Sal          |  $460  |
@@ -156,11 +166,11 @@ Tabla manuscrita:
 | Levadura     |  $320  |
 TOTAL: $620 MXN
 
-NOTA DERECHA — Distribuidora de Harinas del Bajio:
-Encabezado impreso: "Distribuidora de Harinas del Bajio"
-Subtitulo: "Morelia, Mich. Tel: (443) 312-9738"
-Texto: "nota de remision"
-Tabla manuscrita:
+RIGHT RECEIPT — Distribuidora de Harinas del Bajio:
+Printed header: "Distribuidora de Harinas del Bajio"
+Subtitle: "Morelia, Mich. Tel: (443) 312-9738"
+Text: "nota de remision"
+Handwritten table (MEDIUM handwriting, some numbers corrected/overwritten):
 | Descripcion           | Precio   |
 | Bulto Harina 1o       | $1,950   |
 | Bulto Harina 2o       | $1,050   |
@@ -168,54 +178,46 @@ Tabla manuscrita:
 | Bulto Harina 4o       |   $350   |
 | Bulto Harina 5o       |   $350   |
 TOTAL: $1,950 MXN
-Sello morado circular: "P"
+Purple circular stamp: "P"
 
-IMPORTANTE: Todos los textos en espanol. "Bulto Harina", NO "Bulk Flour" ni "Bulck Floura".
-Las notas deben verse como formularios pre-impresos reales de papeleria mexicana generica \
-(papel bond blanco, texto impreso en azul oscuro, llenadas a mano con pluma).
+CRITICAL: All text in Spanish. "Bulto Harina" NOT "Bulk Flour" or "Bulck Floura".
+Each receipt was filled by a DIFFERENT person — three distinctly different handwriting styles.
+The receipts look like real pre-printed Mexican stationery forms (white bond paper, dark blue printed text).
+Ink varies in each — one pen is running low (lighter strokes), another is fresh (dark and bold).""",
 
-IMPERFECCIONES DE ESCRITURA A MANO (obligatorias):
-- Cada nota llenada por una persona diferente (3 letras distintas)
-- Nota izquierda: letra cursiva apretada, rapida, apenas legible
-- Nota central: letra de molde grande y clara pero irregular
-- Nota derecha: letra intermedia, algunos numeros retocados/corregidos
-- Tinta de pluma no uniforme (algunas lineas mas claras por pluma gastada)
-- Texto no perfectamente centrado en las columnas del formulario""",
+    "04": """Smartphone photo of a brown-skinned male hand holding a black smartphone (6.5" screen) over \
+a wooden table. A takeout coffee cup is blurred in the background. The screen shows a modern \
+Mexican banking app:
 
-    "04": """Fotografia de una mano masculina morena sosteniendo un smartphone negro (pantalla 6.5") \
-sobre una mesa de madera. Un vaso de cafe de carton desenfocado al fondo. La pantalla muestra \
-una aplicacion bancaria mexicana con interfaz moderna:
-
-Barra superior azul oscuro:
+Dark blue top bar:
 "Rustico Pizza y Pan"
 "Cuenta: 60-**-***-**78"
 
-Seccion de saldo con fondo blanco:
+White balance section:
 "Saldo disponible"
-"$45,230.17 MXN"  (tipografia grande, negra, bold)
+"$45,230.17 MXN"  (large, black, bold typography)
 
-Seccion "Movimientos" — "OCTUBRE 2025":
+"Movimientos" section — "OCTUBRE 2025":
 
-1. Transferencia recibida — Uber Eats        +$3,420.00  (verde)
-2. Compra TPV — Distribuidora de Harinas      -$1,950.00  (rojo, resaltado amarillo)
-3. Deposito efectivo — Sucursal Centro        +$8,500.00  (verde)
-4. Pago de servicio — CFE Luz                 -$2,180.00  (negro)
-5. Transferencia enviada — Luis A. Hernandez  -$3,500.00  (rojo)
-6. Compra en linea — Amazon MX                  -$459.00  (negro)
+1. Transferencia recibida — Uber Eats        +$3,420.00  (green)
+2. Compra TPV — Distribuidora de Harinas      -$1,950.00  (red, yellow highlight)
+3. Deposito efectivo — Sucursal Centro        +$8,500.00  (green)
+4. Pago de servicio — CFE Luz                 -$2,180.00  (black)
+5. Transferencia enviada — Luis A. Hernandez  -$3,500.00  (red)
+6. Compra en linea — Amazon MX                  -$459.00  (black)
 
-Barra inferior de navegacion: Inicio | Transferir | Pagos | Tarjetas | Mas
+Bottom navigation bar: Inicio | Transferir | Pagos | Tarjetas | Mas
 
-Todo el texto de la UI en espanol. La interfaz debe parecer una app bancaria mexicana real \
-(estilo BBVA, Banorte o similar). Las transacciones resaltadas en amarillo indican gastos \
-mezclados personales/negocio.""",
+All UI text in Spanish. Interface should look like a real Mexican banking app (BBVA/Banorte style).
+Yellow-highlighted transactions indicate mixed personal/business spending.""",
 
-    "05": """Fotografia frontal de una tabla con clip (clipboard) de madera colgada en una pared de acero \
-inoxidable de cocina industrial. La hoja es papel bond blanco tamano carta.
+    "05": """Front-facing smartphone photo of a wooden clipboard hanging on a stainless steel kitchen wall. \
+The sheet is white letter-size bond paper.
 
-Titulo centrado, manuscrito con marcador negro grueso:
+Title centered, handwritten with thick black marker (UNEVEN strokes, not calligraphy):
 "Inventario — 15 Oct"
 
-Tabla manuscrita con pluma negra:
+Table handwritten with black pen (smaller, irregular writing):
 
 | Producto         | Cantidad | Unidad        |
 | Harina de trigo  |  8 ?     | bultos 44kg   |
@@ -230,96 +232,87 @@ Tabla manuscrita con pluma negra:
 | Huevo            |  2       | cartones (30) |
 | Levadura         |  6       | sobres        |
 
-Los signos "?" junto a las cantidades indican duda/estimacion. El asterisco en champinones \
-tiene una nota al margen: "* pedir el jueves". Hay una mancha de harina/polvo blanco \
-en la parte inferior de la hoja.
+"?" marks next to quantities indicate uncertainty/estimation.
+Asterisk on champinones has a margin note: "* pedir el jueves".
+White flour/dust smudge on the lower part of the paper.
+Table lines drawn BY HAND without ruler — visibly wobbly.
+The "8?" was written over a "6" that was crossed out (correction visible).
+"bultos 44kg" is written smaller because the writer ran out of space on the line.
+The "Unidad" column text is cramped — the writer misjudged column widths.""",
 
-IMPERFECCIONES DE ESCRITURA A MANO (obligatorias):
-- Letra de marcador grueso para el titulo (trazos desiguales, no caligrafia)
-- El cuerpo en pluma negra con letra mas pequena e irregular
-- Las lineas de la tabla NO son rectas (dibujadas a mano sin regla)
-- Algunos numeros escritos encima de otros (correciones: el "8?" sobre un "6" tachado)
-- La columna "Unidad" con letra mas apretada porque se quedo sin espacio
-- "bultos 44kg" escrito mas chico al quedarse sin renglon""",
+    "06": """Angled smartphone photo of a half-letter sheet on a dark wooden table. A blue BIC pen beside it. \
+The paper has fold creases (was folded in thirds). Warm interior lighting.
 
-    "06": """Fotografia en angulo de una hoja tamano media carta sobre una mesa de madera oscura. Una \
-pluma BIC azul al lado. La hoja tiene dobleces (fue doblada en tres). Iluminacion calida de interior.
-
-Encabezado centrado, texto impreso:
+Centered printed header:
 "Rustico Pizza y Pan"
-[Icono pequeno de rebanada de pizza con espiga de trigo]
+[Small pizza slice icon with wheat sprig]
 
-Sello de goma rectangular en la esquina superior derecha:
+Rubber stamp rectangle in upper right corner:
 "Rustico Pizza y Pan — Morelia, Mich."
 
-Texto impreso en negrita:
+Bold printed text:
 "RECIBO DE PAGO"
 
-Contenido impreso con datos llenados a mano (pluma azul):
+Printed fields with data FILLED IN BY HAND (blue ballpoint, right-leaning slant, slightly hurried):
 Nombre: Luis Angel Hernandez Martinez
 Periodo: 1 al 15 de Octubre 2025
 Concepto: Sueldo quincenal
 Cantidad: $3,500.00 (Tres mil quinientos pesos 00/100 M.N.)
 
-Dos lineas de firma en la parte inferior:
-Izquierda: firma ilegible cursiva — debajo "Recibe"
-Derecha: firma ilegible cursiva — debajo "Entrega"
+Two signature lines at the bottom:
+Left: illegible cursive signature scrawl — below it "Recibe"
+Right: different illegible cursive signature scrawl — below it "Entrega"
 
-Las firmas deben verse como garabatos rapidos reales, no texto legible.
+The handwritten fields lean right, written slightly hurried.
+"Hernandez" is more cramped because the writer was running out of space on the line.
+"$3,500.00" is written more carefully than the rest (slower, more legible).
+Signatures are asymmetric quick scribbles, clearly different from each other — NOT readable text.""",
 
-IMPERFECCIONES DE ESCRITURA A MANO (obligatorias):
-- Los datos llenados a mano (nombre, periodo, concepto) en letra distinta al texto impreso
-- La letra manuscrita tiene inclinacion hacia la derecha, un poco apresurada
-- "Hernandez" escrito ligeramente mas apretado porque el espacio se acaba
-- El monto "$3,500.00" escrito con mas cuidado que el resto (mas lento, mas legible)
-- Las firmas son garabatos asimetricos, diferentes entre si""",
+    "07": """Exterior smartphone photo of a colonial facade on a cobblestone street in Morelia, Michoacan. \
+Golden hour (sunset). Pink-terracotta cantera stone building with an antique wooden door, open. \
+Above the door, a carved wooden sign:
 
-    "07": """Fotografia exterior de una fachada colonial en calle empedrada de Morelia, Michoacan. \
-Hora dorada (atardecer). Edificio de cantera rosa-terracota con puerta de madera antigua \
-abierta. Sobre la puerta, letrero de madera tallado:
+"Rustico"  (with accent: Rustico, rustic serif typography with carved wheat sprig)
 
-"Rustico"  (con acento: Rustico, tipografia serif rustica con espiga de trigo grabada)
-
-A la izquierda de la puerta, pizarra tipo A-frame (caballete negro) con texto en gis de colores:
+To the left of the door, a black A-frame chalkboard with chalk text:
 
 "Especiales de Hoy:
 Pizza Margarita — $120
 Pan de Masa Madre — $50"
 
-(el texto de la pizarra en gis blanco y amarillo, letra informal de pizarron)
+CHALK IMPERFECTIONS (mandatory):
+- Chalk leaves irregular porous strokes, not clean lines
+- Chalk dust accumulated at base of the board
+- Letters have variable thickness as the chalk wears and changes angle
+- One letter has been erased and rewritten (ghost of previous chalk visible)
+- "$120" and "$50" written larger to be visible from the street
+- Some letters have small gaps where the chalk skipped on the rough surface
 
-IMPERFECCIONES DEL GIS (obligatorias):
-- El gis deja trazos irregulares con bordes porosos (no lineas limpias)
-- Polvo de gis acumulado en la base de la pizarra
-- Las letras tienen grosor variable (el gis se gasta y cambia de angulo)
-- Alguna letra borrada y reescrita (residuo de gis anterior visible)
-- "$120" y "$50" escritos mas grandes para ser visibles desde la calle
+Two clay pots with plants: one with pink bougainvillea, one with herbs.
+The street shows colorful colonial facades (yellow, terracotta) on both sides.
+Window with black wrought iron grill.""",
 
-Dos macetas de barro con plantas: una con flores bugambilia rosa, otra con hierbas. \
-La calle muestra fachadas coloniales de colores (amarillo, terracota) a los lados. \
-Ventana con reja de herreria negra.""",
+    "08": """Interior smartphone photo of an artisanal pizzeria kitchen. Stainless steel industrial oven \
+built into a wall covered with Puebla-style talavera tiles (floral pattern: blue, yellow, orange). \
+The oven is on (orange glow visible through the glass window).
 
-    "08": """Fotografia de interior de cocina de pizzeria artesanal. Horno industrial de acero inoxidable \
-empotrado en pared revestida con azulejo de talavera poblana (patron floral azul, amarillo, \
-naranja). El horno esta encendido (brillo anaranjado visible por la ventanilla).
+Stainless steel work table with flour dusted on it and 6-8 dough balls in various stages of shaping. \
+A male arm (brown skin) kneading a dough ball on the right.
 
-Mesa de trabajo de acero inoxidable con harina espolvoreada y 6-8 bolas de masa en \
-diferentes etapas de formado. Un brazo masculino (piel morena) amasando una bola a la derecha.
-
-Estanteria metalica al fondo con contenedores de plastico translucido con tapas rojas. \
-Etiquetas manuscritas en cinta masking tape amarilla pegadas al frente:
+Metal shelving in the back with translucent plastic containers with red lids.
+Handwritten labels on yellow masking tape stuck to the front:
 "Harina"   "Azucar"   "Sal"
-(escritas con marcador negro grueso tipo Sharpie, letra de molde grande e irregular, \
-trazos rapidos, la cinta cortada a mano con bordes desiguales, ligeramente torcidas)
+(written with thick black Sharpie marker, large block letters, irregular and quick strokes, \
+tape cut by hand with uneven edges, labels stuck slightly crooked on the containers)
 
-Pala de pizza de madera apoyada contra la pared. Botellas de squeeze con salsas. \
-Refrigerador industrial de acero al fondo. Iluminacion fluorescente de techo.""",
+Wooden pizza peel leaning against the wall. Squeeze bottles with sauces.
+Industrial stainless steel refrigerator in the background. Fluorescent ceiling light.""",
 
-    "09": """Fotografia de interior del mostrador/caja de una pizzeria artesanal mexicana. Iluminacion \
-natural de ventanal lateral. Mostrador de madera rustica gastada.
+    "09": """Interior smartphone photo of the counter/register area of a small Mexican artisanal pizzeria. \
+Natural light from a side window. Worn rustic wooden counter.
 
-PIZARRA DE MENU (pared izquierda, marco de madera, fondo negro):
-Texto en gis blanco, letra informal:
+CHALKBOARD MENU (left wall, wooden frame, black background):
+Chalk text, informal lettering:
 
 Pizza Margarita    $120
 Pizza Pepperoni    $150
@@ -331,8 +324,11 @@ Concha              $15
 Rol de canela       $25
 Agua fresca         $25
 
-CUADERNO ABIERTO (espiral, sobre el mostrador, primer plano):
-Texto manuscrito con pluma azul, titulo subrayado:
+CHALK: thick irregular strokes, dust at bottom, variable letter sizes, prices bigger than names, \
+some lines slightly crooked, chalk skipping on rough surface.
+
+OPEN SPIRAL NOTEBOOK (on the counter, foreground):
+Handwritten in blue pen, underlined title:
 
 "Registro de ventas — Sofia"
 
@@ -340,41 +336,36 @@ Pizza pepperoni     $150
 Pan concha x3        $45
 Agua fresca          $25
 
-OTROS ELEMENTOS:
-- Caja registradora metalica abierta con billetes mexicanos (de $20, $50, $100, $200) \
-y monedas en compartimentos
-- Terminal de pago (datafono) pequena junto a la caja
-- Vitrina de vidrio con pan artesanal (conchas, cuernos, roles de canela)
-- Carpeta azul con pluma sobre el mostrador (libreta de gastos)
-- Monitor antiguo de computadora al fondo mostrando una hoja de calculo borrosa
+NOTEBOOK HANDWRITING: young person's writing (Sofia is the young employee), informal block letters, \
+some rounded numbers, title underlined with a wavy line not a straight one.
+The chalkboard and notebook must have CLEARLY DIFFERENT handwriting (different people wrote them).
 
-IMPORTANTE: Todo texto en espanol. "Rol de canela" (NO "Cinnamon roll"). "Registro de \
-ventas" (NO "Sales log"). "Pizza Hawaiana" (NO "Pizza ya morando").
+OTHER ELEMENTS:
+- Open metal cash register with Mexican bills ($20, $50, $100, $200) and coins in compartments
+- Small payment terminal (datafono) next to the register
+- Glass display case with artisanal bread (conchas, cuernos, cinnamon rolls)
+- Blue folder with pen on the counter (expense ledger)
+- Old computer monitor in background showing a blurry spreadsheet
 
-IMPERFECCIONES DE ESCRITURA (obligatorias):
-- PIZARRA: gis con trazos gruesos e irregulares, polvo de gis en la base, letras de \
-diferente tamano, precios mas grandes que los nombres, alguna linea ligeramente chueca
-- CUADERNO: pluma azul, letra rapida de adolescente/joven (Sofia es la empleada joven), \
-letra de molde informal, algunos numeros redondeados, titulo subrayado con linea ondulada no recta
-- La pizarra y el cuaderno deben tener letras CLARAMENTE DIFERENTES (personas distintas)""",
+CRITICAL: All text in Mexican Spanish. "Rol de canela" (NOT "Cinnamon roll"). \
+"Registro de ventas" (NOT "Sales log"). "Pizza Hawaiana" (NOT "Pizza ya morando").""",
 
-    "10": """Fotografia cenital de un escritorio de madera oscura con aproximadamente 20-25 notas de \
-remision esparcidas desordenadamente. Una bolsa de plastico negra arrugada en la esquina \
-superior izquierda (donde se guardaban las notas).
+    "10": """Top-down smartphone photo of a dark wooden desk with approximately 20-25 delivery receipts \
+scattered messily. A crumpled black plastic bag in the upper left corner (where the receipts were stored).
 
-Las notas son formularios pre-impresos de papeleria mexicana, tamano media carta, papel bond \
-blanco. Encabezado impreso en cada una: "NOTA DE REMISION" (tipografia serif azul oscuro).
+The receipts are pre-printed Mexican stationery forms, half-letter size, white bond paper. \
+Printed header on each: "NOTA DE REMISION" (dark blue serif typography).
 
-Variaciones entre las notas:
-- Algunas llenadas con pluma azul, otras con pluma negra
-- 3-4 notas con sello morado "PAGADO" (rectangular o circular)
-- 2-3 notas con manchas de grasa translucidas
-- Algunas dobladas, otras arrugadas, bordes desgastados
-- Letras manuscritas parcialmente legibles (la intencion es mostrar el volumen y desorden, \
-no leer cada nota individual)
+Variations among receipts:
+- Some filled in with blue pen, others with black pen
+- 3-4 receipts with purple "PAGADO" stamp (rectangular or circular)
+- 2-3 receipts with translucent grease stains
+- Some folded, others crumpled, worn edges
+- Handwritten text partially legible (the intent is to show volume and disorder, \
+not to read each individual receipt)
 
-La imagen debe transmitir desorden documental: evidencia de que las notas de proveedores \
-se guardan en una bolsa de plastico sin organizacion. Algunas notas se superponen.""",
+The image should convey documentary disorder: evidence that supplier receipts are stored \
+in a plastic bag without organization. Some receipts overlap each other.""",
 }
 
 FILENAMES = {
@@ -390,9 +381,26 @@ FILENAMES = {
     "10": "10_bolsa_notas.jpg",
 }
 
+# Imagenes que requieren refinamiento iterativo (tienen texto manuscrito critico)
+NEEDS_REFINEMENT = {"01", "02", "03", "05", "06", "09"}
+
+# Aspect ratios por imagen
+ASPECT_RATIOS = {
+    "01": "3:2",   # libreta horizontal
+    "02": "4:3",   # hoja en angulo
+    "03": "3:2",   # tres notas horizontal
+    "04": "3:4",   # celular vertical
+    "05": "3:4",   # clipboard vertical
+    "06": "4:3",   # recibo en angulo
+    "07": "3:2",   # fachada horizontal
+    "08": "3:2",   # cocina horizontal
+    "09": "3:2",   # mostrador horizontal
+    "10": "3:2",   # escritorio horizontal
+}
+
 
 # ---------------------------------------------------------------------------
-# Compresion JPEG simple usando Pillow si esta disponible, si no, cjpeg
+# Compresion JPEG
 # ---------------------------------------------------------------------------
 def compress_jpeg(src: Path, dst: Path, quality: int = 60):
     """Comprime un JPEG a menor calidad/tamano."""
@@ -400,7 +408,6 @@ def compress_jpeg(src: Path, dst: Path, quality: int = 60):
         from PIL import Image
         img = Image.open(src)
         img = img.convert("RGB")
-        # Redimensionar si es mayor a 1600px en cualquier lado
         max_side = 1600
         if max(img.size) > max_side:
             ratio = max_side / max(img.size)
@@ -410,8 +417,6 @@ def compress_jpeg(src: Path, dst: Path, quality: int = 60):
         return True
     except ImportError:
         pass
-
-    # Fallback: cjpeg
     import subprocess
     try:
         subprocess.run(
@@ -420,42 +425,121 @@ def compress_jpeg(src: Path, dst: Path, quality: int = 60):
         )
         return True
     except (subprocess.CalledProcessError, FileNotFoundError):
-        # Ultimo recurso: copiar tal cual
         import shutil
         shutil.copy2(src, dst)
         return False
 
 
 # ---------------------------------------------------------------------------
-# Generacion con Gemini
+# Generacion con Gemini — single shot
 # ---------------------------------------------------------------------------
 def generate_image(client, prompt_key: str) -> bytes | None:
-    """Genera una imagen con Gemini y retorna los bytes de la imagen."""
+    """Genera una imagen con Gemini y retorna los bytes."""
     full_prompt = PREFIJO + PROMPTS[prompt_key]
+    aspect = ASPECT_RATIOS.get(prompt_key, "3:2")
+
+    gen_cfg = types.GenerateContentConfig(
+        response_modalities=["IMAGE", "TEXT"],
+        image_config=types.ImageConfig(
+            aspect_ratio=aspect,
+            image_size="2K",
+        ),
+        temperature=0.5,
+        top_p=0.95,
+        top_k=64,
+    )
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            print(f"  Intento {attempt}/{MAX_RETRIES}...")
+            print(f"  Intento {attempt}/{MAX_RETRIES} (single-shot, 2K, aspect={aspect})...")
             response = client.models.generate_content(
                 model=MODEL,
                 contents=full_prompt,
-                config=types.GenerateContentConfig(
-                    response_modalities=["IMAGE", "TEXT"],
-                ),
+                config=gen_cfg,
             )
 
-            # Buscar la imagen en la respuesta
             if response.candidates:
                 for part in response.candidates[0].content.parts:
                     if part.inline_data and part.inline_data.mime_type.startswith("image/"):
                         print(f"  Imagen generada ({len(part.inline_data.data)} bytes)")
                         return part.inline_data.data
 
-            # Si llego aqui, no hubo imagen
-            print(f"  No se genero imagen. Respuesta de texto:")
-            for part in response.candidates[0].content.parts:
-                if part.text:
-                    print(f"    {part.text[:200]}")
+            print(f"  No se genero imagen.")
+            if response.candidates:
+                for part in response.candidates[0].content.parts:
+                    if part.text:
+                        print(f"    Texto: {part.text[:200]}")
+
+        except Exception as e:
+            print(f"  Error: {e}")
+
+        if attempt < MAX_RETRIES:
+            print(f"  Reintentando en {RETRY_DELAY}s...")
+            time.sleep(RETRY_DELAY)
+
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Generacion con Gemini — chat iterativo (2 turnos: generar + refinar)
+# ---------------------------------------------------------------------------
+def generate_image_with_refinement(client, prompt_key: str) -> bytes | None:
+    """Genera imagen y luego la refina en un segundo turno de chat."""
+    full_prompt = PREFIJO + PROMPTS[prompt_key]
+    aspect = ASPECT_RATIOS.get(prompt_key, "3:2")
+
+    gen_cfg = types.GenerateContentConfig(
+        response_modalities=["IMAGE", "TEXT"],
+        image_config=types.ImageConfig(
+            aspect_ratio=aspect,
+            image_size="2K",
+        ),
+        temperature=0.6,
+        top_p=0.95,
+        top_k=64,
+    )
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            print(f"  Intento {attempt}/{MAX_RETRIES} (chat 2-turnos, 2K, aspect={aspect})...")
+
+            # Turno 1: generar
+            chat = client.chats.create(model=MODEL, config=gen_cfg)
+            resp1 = chat.send_message(full_prompt)
+
+            image_data_1 = None
+            if resp1.candidates:
+                for part in resp1.candidates[0].content.parts:
+                    if part.inline_data and part.inline_data.mime_type.startswith("image/"):
+                        image_data_1 = part.inline_data.data
+                        break
+
+            if not image_data_1:
+                print(f"  Turno 1 no genero imagen.")
+                if attempt < MAX_RETRIES:
+                    time.sleep(RETRY_DELAY)
+                continue
+
+            print(f"  Turno 1: imagen base ({len(image_data_1)} bytes)")
+            time.sleep(5)  # breve pausa entre turnos
+
+            # Turno 2: refinar escritura
+            print(f"  Turno 2: refinando escritura...")
+            resp2 = chat.send_message(REFINE_INSTRUCTION)
+
+            image_data_2 = None
+            if resp2.candidates:
+                for part in resp2.candidates[0].content.parts:
+                    if part.inline_data and part.inline_data.mime_type.startswith("image/"):
+                        image_data_2 = part.inline_data.data
+                        break
+
+            if image_data_2:
+                print(f"  Turno 2: imagen refinada ({len(image_data_2)} bytes)")
+                return image_data_2
+            else:
+                print(f"  Turno 2 no genero imagen, usando turno 1.")
+                return image_data_1
 
         except Exception as e:
             print(f"  Error: {e}")
@@ -468,9 +552,10 @@ def generate_image(client, prompt_key: str) -> bytes | None:
 
 
 def main():
-    # Determinar que imagenes generar
+    # Determinar modo
     compress_only = "--compress-only" in sys.argv
-    requested = [a for a in sys.argv[1:] if a != "--compress-only"]
+    no_refine = "--no-refine" in sys.argv
+    requested = [a for a in sys.argv[1:] if not a.startswith("--")]
 
     if compress_only:
         keys = requested if requested else sorted(PROMPTS.keys())
@@ -493,7 +578,6 @@ def main():
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
         print("Error: Define GEMINI_API_KEY o GOOGLE_API_KEY como variable de entorno.")
-        print("  export GEMINI_API_KEY='tu-api-key-aqui'")
         sys.exit(1)
 
     # Imagenes a generar
@@ -502,20 +586,17 @@ def main():
         invalid = [k for k in keys if k not in PROMPTS]
         if invalid:
             print(f"Error: Imagenes no validas: {invalid}")
-            print(f"  Disponibles: {sorted(PROMPTS.keys())}")
             sys.exit(1)
     else:
         keys = sorted(PROMPTS.keys())
 
-    print(f"Generando {len(keys)} imagenes con {MODEL}...")
+    print(f"Generando {len(keys)} imagenes con {MODEL} a 2K...")
     print(f"  Destino: {OUTPUT_DIR}")
     print(f"  Comprimidas: {COMPRESSED_DIR}")
+    print(f"  Refinamiento iterativo: {'OFF' if no_refine else 'ON para ' + str(NEEDS_REFINEMENT)}")
     print()
 
-    # Crear cliente
     client = genai.Client(api_key=api_key)
-
-    # Crear directorios
     OUTPUT_DIR.mkdir(exist_ok=True)
     COMPRESSED_DIR.mkdir(exist_ok=True)
 
@@ -523,17 +604,20 @@ def main():
 
     for i, key in enumerate(keys, 1):
         filename = FILENAMES[key]
-        print(f"[{i}/{len(keys)}] Generando {filename}...")
+        use_refinement = (key in NEEDS_REFINEMENT) and not no_refine
 
-        image_data = generate_image(client, key)
+        print(f"[{i}/{len(keys)}] Generando {filename} {'(con refinamiento)' if use_refinement else '(single-shot)'}...")
+
+        if use_refinement:
+            image_data = generate_image_with_refinement(client, key)
+        else:
+            image_data = generate_image(client, key)
 
         if image_data:
-            # Guardar original
             out_path = OUTPUT_DIR / filename
             out_path.write_bytes(image_data)
             print(f"  Guardada: {out_path} ({len(image_data) / 1024:.0f}KB)")
 
-            # Comprimir
             comp_path = COMPRESSED_DIR / filename
             compress_jpeg(out_path, comp_path)
             comp_kb = comp_path.stat().st_size / 1024
@@ -544,9 +628,8 @@ def main():
             print(f"  FALLO: No se pudo generar {filename}")
             resultados["error"].append(key)
 
-        # Pausa entre generaciones para no exceder rate limits
         if i < len(keys):
-            print(f"  Esperando {RETRY_DELAY}s antes de la siguiente...")
+            print(f"  Esperando {RETRY_DELAY}s...")
             time.sleep(RETRY_DELAY)
 
         print()
@@ -560,9 +643,7 @@ def main():
     if resultados["error"]:
         print(f"  Fallidas: {len(resultados['error'])}/{len(keys)}")
         print(f"    {', '.join(FILENAMES[k] for k in resultados['error'])}")
-        print()
-        print("Para reintentar las fallidas:")
-        print(f"  python {sys.argv[0]} {' '.join(resultados['error'])}")
+        print(f"\n  Reintentar: python {sys.argv[0]} {' '.join(resultados['error'])}")
 
 
 if __name__ == "__main__":
