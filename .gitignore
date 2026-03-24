@@ -1,5 +1,5 @@
 .env
-investigacion/evidencias/
+investigacion/evidencias_compressed/
 __pycache__/
 pipeline/data/
 *.db
